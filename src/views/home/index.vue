@@ -20,6 +20,7 @@
         </swiper-slide>
       </swiper>
     </div>
+
     <div class="main-container">
       <div class="about max-1700">
         <div class="warp-title animate__fadeInUp onMounted-wow">
@@ -38,6 +39,38 @@
           </div>
           <div class="about-right">
             <img :src="requirePath('logo/xiguan-logo.png')" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="business-main max-1700">
+        <div class="main-box">
+          <div class="head-box">
+            <div class="head-left">喜贯产业</div>
+            <div class="head-right">打造中医养生产业链全闭环体系</div>
+          </div>
+          <div class="container-box animate__fadeInUp onMounted-wow">
+            <div class="item-content" v-for="(item, i) in businessList1" :key="i">
+              <img :src="requirePath(item.imgPath)" alt="" />
+              <p>{{ item.label }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="teaching max-1700">
+        <div class="warp-title">
+          <span>师 · 资 · 团 · 队</span>
+          <div class="line"></div>
+        </div>
+        <div class="story-box animate__fadeInUp onMounted-wow">
+          <div class="story-item" v-for="(item, i) in storyList" :key="i">
+            <div class="story-title">
+              <div class="title">{{ item.title }}</div>
+              <div class="line"></div>
+            </div>
+            <div class="story-content">
+              <img :src="requirePath(item.imgPath)" alt="" />
+              <p>{{ item.desc }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -231,6 +264,59 @@ const storeList = [
     address: '地址：镜湖区北京中路华亭阳光2.-2号门面'
   }
 ]
+
+const businessList1 = [
+  {
+    imgPath: 'businessSegments/003.png',
+    label: `企业在人才就业上：目前在安徽省芜湖市、马鞍山市、阜阳市、河北省保定市共计开设三十余家直营中医推拿店，后期将通过直营、加盟、托管等模式开设门店，提供更多的就业创业平台。`
+  },
+  {
+    imgPath: 'businessSegments/002.png',
+    label: `企业在人才储备上：增设（芜湖、阜阳、亳州）职业培训学校三所；与芜湖中医药高等专科学校、康泰职业培训学校、皖新职业培训学校、芜湖县医药卫生学校、南京中保职业培训学校等紧密合作。`
+  },
+  {
+    imgPath: 'businessSegments/001.png',
+    label: `企业在产品上：拥有上千亩艾草种植基地，从源头把控原材料的可靠性，提供产品的溯源性。以“企业+农村合作社+农户”的模式从质量和数量上保障原材料产品的供给，为后期门店开设打好坚实的基础。`
+  },
+  {
+    imgPath: 'businessSegments/004.png',
+    label: `企业在数据整合上：自主研发收银系统和会员管理系统，运用互联网思维针对客户的裂变与黏性有了更好的创新。在异业联盟上：以一卡通用为导向，为客户提供便利，为商家提高营收。在公益事业上：解决残疾人士就业，不断完善着企业的社会使命。`
+  }
+]
+
+const storyList = [
+  {
+    title: '发源',
+    imgPath: 'brandCulture/001.jpg',
+    desc: '上世纪70年代末，初代创始人陶宜珍曾是芜湖市盲人五金厂的管理者，一名中共党员，在时代变革的重要时期，她多方考察、开拓创新，将中医推拿技术引流回本土加以学习、创新，从而创办了芜湖市第一家盲人按摩诊所。她在不断地学习与实践中总结创新出更具疗效的推拿按摩技法，不断完善，形成了一套独有的中医推拿体系。'
+  },
+  {
+    title: '传承',
+    imgPath: 'brandCulture/002.jpg',
+    desc: '王红梅，师从陶宜珍，“按摩医师”资质，品牌创始人。1999年，王红梅老师继承了师父的遗志，弘扬传统技艺，不断宣传祖传推拿按摩技术，培养出众多优秀的推拿按摩技师，为推拿按摩行业这一中医国技的发展和社会残疾人群生存、创业等方面发挥着自己的微薄之力。'
+  },
+  {
+    title: '发展',
+    imgPath: 'brandCulture/003.jpg',
+    desc: '肖业宇，王红梅老师嫡传弟子，立志将“王红梅”品牌全面推向社会，先后与芜湖市多家医院及专业院校合作，并创办王红梅按摩职业培训学校，解决企业人才储备问题；在品牌产品端为把控原材料品质，建立了中草药种植基地，总基地600亩，形成了产业开闭环，为走向品牌全国化而奠定了坚实基础。'
+  },
+  {
+    title: '使命',
+    imgPath: 'brandCulture/004.jpg',
+    desc: '从70年代末到21世纪初，三代人的砥砺前行。不同的时代造就不同的使命，在平凡的岗位上，一代又一代的“王红梅人”为继承弘扬传统手艺而前赴后继，为社会未来的大健康产业而添砖加瓦，这里面有你、有我、也有他……'
+  },
+  {
+    title: '使命',
+    imgPath: 'brandCulture/004.jpg',
+    desc: '从70年代末到21世纪初，三代人的砥砺前行。不同的时代造就不同的使命，在平凡的岗位上，一代又一代的“王红梅人”为继承弘扬传统手艺而前赴后继，为社会未来的大健康产业而添砖加瓦，这里面有你、有我、也有他……'
+  },
+  {
+    title: '使命',
+    imgPath: 'brandCulture/004.jpg',
+    desc: '从70年代末到21世纪初，三代人的砥砺前行。不同的时代造就不同的使命，在平凡的岗位上，一代又一代的“王红梅人”为继承弘扬传统手艺而前赴后继，为社会未来的大健康产业而添砖加瓦，这里面有你、有我、也有他……'
+  }
+]
+
 const businessList = [
   {
     title: '面部美容调理灸',
@@ -417,6 +503,135 @@ const joinUsList = [
           @include media($breakpoint-md) {
             width: 200px;
             height: 150px;
+          }
+        }
+      }
+    }
+  }
+  .business-main {
+    overflow: hidden;
+    .main-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .head-box {
+      display: flex;
+      margin: 50px 0;
+      @include media($breakpoint-md) {
+        flex-direction: column;
+        align-items: center;
+      }
+      .head-left {
+        width: 156px;
+        height: 46px;
+        background: url('@/assets/juanzhou.png') no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        color: #f2e6caff;
+      }
+      .head-right {
+        margin-left: 30px;
+        letter-spacing: 3rem;
+        font-family: 'FangSong', sans-serif;
+        font-size: 22px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        @include media($breakpoint-md) {
+          letter-spacing: 0.1rem;
+          margin-top: 30px;
+          margin-left: 0;
+          font-weight: 500;
+          font-size: 16px;
+          color: $juanzhou-color;
+        }
+      }
+    }
+    .container-box {
+      display: flex;
+      flex-wrap: wrap;
+      .item-content {
+        flex: 46%;
+        display: flex;
+        align-items: center;
+        margin-right: 2%;
+        margin-bottom: 100px;
+        @include media($breakpoint-md) {
+          flex-direction: column;
+          margin-left: 20px;
+          margin-right: 20px;
+          margin-bottom: 30px;
+        }
+        & > img {
+          width: 380px;
+          height: 300px;
+          margin-right: 30px;
+          @include media($breakpoint-md) {
+            margin-right: 0;
+            width: 100%;
+            height: 250px;
+          }
+        }
+        & > p {
+          line-height: 30px;
+          color: #535353;
+        }
+      }
+    }
+  }
+  .teaching {
+    .story-box {
+      margin-top: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      @include media($breakpoint-md) {
+        flex-direction: column;
+      }
+      .story-item {
+        flex: 25%;
+        margin-right: 8%;
+        margin-bottom: 60px;
+        @include media($breakpoint-md) {
+          margin-right: 0;
+          padding: 0 30px;
+        }
+        &:nth-of-type(3n) {
+          margin-right: 0;
+        }
+        .story-title {
+          display: flex;
+          align-items: center;
+          .title {
+            background: url('@/assets/juanhzou-half.png') no-repeat;
+            background-size: 100% 100%;
+            font-size: 24px;
+            letter-spacing: 0.5rem;
+            color: #f2e6ca;
+            width: 120px;
+            height: 60px;
+            line-height: 66px;
+            padding-left: 40px;
+            @include media($breakpoint-md) {
+              font-size: 18px;
+            }
+          }
+          .line {
+            flex: 1;
+            height: 2px;
+            background-color: #d22f34ff;
+          }
+        }
+        .story-content {
+          & > img {
+            width: 100%;
+            margin: 30px 0;
+          }
+          & > p {
+            line-height: 30px;
           }
         }
       }

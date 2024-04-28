@@ -1,0 +1,363 @@
+<template>
+  <div>
+    <breadcrumb />
+    <div class="gary">
+      <div class="wrapper animate__fadeInUp onMounted-wow">
+        <img class="image" :src="requirePath('about/about-us.jpg')" alt="" />
+        <div class="right-box">
+          <div class="title">安徽 · 喜贯</div>
+          <div class="desc">
+            喜贯，1956年始，三代传承，一路秉承中医养生健康观、自然观、求己观的发展理念，自始以“传承中医精髓，弘扬中华文化”为己任，
+            旗下品牌【王红梅祖传按摩】其技法荣获“非物质文化遗产”，
+            【茹德堂古法艾灸】荣膺国家中医药管理局全国特种灸法研究专业委员会“艾灸推广示范基地”。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-bottom">
+      <div class="wrapper">
+        <div class="aboutNum animate__fadeInUp onMounted-wow">
+          <ul class="content">
+            <li v-for="(num, index) in aboutNumList" :key="index">
+              <div class="number">
+                <span>{{ num.number }}</span>
+                <span>{{ num.unit }}</span>
+              </div>
+              <div class="tit">{{ num.tit }}</div>
+            </li>
+          </ul>
+        </div>
+        <div class="content">
+          <p class="info">
+            <span class="row"
+              >当今时代，大风起兮云飞扬，中医养生传千年，潮起潮落，产业更迭企业兴替，一代新人换旧人，创业、创新、创富始终是时代的最强音。
+            </span>
+            <span class="row">
+              喜贯，1956年始，三代传承，一路秉承中医养生健康观、自然观、求己观的发展理念，自始以“传承中医精髓，弘扬中华文化”为己任，旗下品牌【王红梅祖传按摩】其技法荣获“非物质文化遗产”，【茹德堂古法艾灸】荣膺国家中医药管理局全国特种灸法研究专业委员会“艾灸推广示范基地”。
+            </span>
+            <span class="row">
+              喜贯打破了传统旧有思维，创造性地整合了中医养生最佳资源，将养生门店、职培学校、中草药种植加工和赋能平台四大业务板块联动运营，形成一体三翼的格局：以养生门店业务为主体，以职培学校、中草药种植加工和赋能平台为三翼，相生互动、合力发展，为行业发展提供“技术+人才+产品+管理”的特色服务，打造了中医养生产业链全闭环体系，力行为行业互为补充、和谐发展的生态圈贡献自己一份力量。
+            </span>
+          </p>
+        </div>
+        <div class="honor-box">
+          <div class="history">
+            <p class="history-title">大事记</p>
+            <div class="history-content">
+              <p v-for="(h, index) in history" :key="index">
+                <span class="year">{{ h.year }}</span>
+                <span>{{ h.content }}</span>
+              </p>
+            </div>
+          </div>
+          <div class="honor-img">
+            <div class="img-item" v-for="(img, i) in honorImages" :key="i">
+              <img :src="requirePath(img)" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script setup>
+import breadcrumb from '@/components/breadcrumb'
+import { requirePath } from '@/utils/index.js'
+import { onMounted } from 'vue'
+import WOW from 'wow.js'
+onMounted(() => {
+  const wowInt = new WOW({
+    // 对所有拥有该class的元素挂载动画
+    boxClass: 'onMounted-wow',
+    // 需要挂载的动画元素
+    animateClass: 'animate__animated',
+    // 偏移值（即偏移一定距离后再执行动画，推荐设置！）
+    offset: 100,
+    // 移动设备是否生效
+    mobile: true,
+    // 是否支持异步
+    live: true
+  })
+  wowInt.init()
+})
+
+const history = [
+  {
+    year: '1956年',
+    content: '始'
+  },
+  {
+    year: '1992年',
+    content: '集体所有制企业'
+  },
+  {
+    year: '2006年',
+    content: '盲人按摩诊所更名为“王红梅祖传按摩”'
+  },
+  {
+    year: '2015年',
+    content: '开设第一家中医推拿分店'
+  },
+  {
+    year: '2016年',
+    content: '同时开设三家中医推拿分店'
+  },
+  {
+    year: '2017年',
+    content: '成立了安徽省喜贯健康管理咨询有限公司'
+  },
+  {
+    year: '2018年',
+    content: '成立了芜湖市王红梅职业培训学校'
+  },
+  {
+    year: '2020年',
+    content: '成立了马鞍山市王红梅中草药种植基地'
+  },
+  {
+    year: '2021年',
+    content: '开拓阜阳市场，并开设中医推拿分店'
+  },
+  {
+    year: '2021年',
+    content: '携手“茹德堂”古法艾灸，形成战略合作'
+  },
+  {
+    year: '2021年',
+    content: '荣获芜湖市扶贫就业基地称号'
+  },
+  {
+    year: '2022年',
+    content: '成立了阜阳市王红梅职业培训学校'
+  },
+  {
+    year: '2022年',
+    content: '成立了阜阳市王红梅健康服务有限公司'
+  },
+  {
+    year: '2022年',
+    content: '成立了马鞍山市王红梅健康服务有限公司'
+  },
+  {
+    year: '2022年',
+    content: '荣获安徽省省残疾人按摩实训基地称号'
+  },
+  {
+    year: '2022年',
+    content: '荣获乡村振兴示范基地称号'
+  },
+  {
+    year: '2022年',
+    content: '荣获非物质文化遗产称号'
+  },
+  {
+    year: '2023年',
+    content: '.....'
+  }
+]
+
+const honorImages = [
+  'about/honorImage/001.jpg',
+  'about/honorImage/002.jpg',
+  'about/honorImage/003.jpg',
+  'about/honorImage/004.jpg',
+  'about/honorImage/0010.jpg',
+  'about/honorImage/006.jpg',
+  'about/honorImage/007.jpg',
+  'about/honorImage/008.jpg',
+  'about/honorImage/009.jpg',
+  'about/honorImage/005.jpg'
+]
+
+const aboutNumList = [
+  {
+    number: '1956',
+    tit: '成立时间',
+    unit: '年'
+  },
+  {
+    number: '15',
+    tit: '覆盖门店',
+    unit: '个'
+  },
+  {
+    number: '30',
+    tit: '精英技师',
+    unit: '名+'
+  }
+]
+</script>
+<style lang="scss" scoped>
+@import '@/assets/style/variable';
+.gary {
+  background-color: #f7f7f7;
+  display: flex;
+  padding: 100px 0 200px;
+  .wrapper {
+    display: flex;
+    @include media($breakpoint-md) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .image {
+    width: 550px;
+    height: 365px;
+    margin-right: 50px;
+    @include media($breakpoint-md) {
+      max-width: 300px;
+      height: 210px;
+      margin-right: 0;
+    }
+  }
+  .right-box {
+    flex: 1;
+    font-size: 14px;
+    .title {
+      margin-top: 10px;
+      margin-bottom: 30px;
+      font-size: 26px;
+      color: #333333;
+      @include media($breakpoint-md) {
+        text-align: center;
+        margin-top: 30px;
+      }
+    }
+    .desc {
+      color: #999999;
+      line-height: 26px;
+      @include media($breakpoint-md) {
+        display: none;
+      }
+    }
+  }
+}
+.about-bottom {
+  .wrapper {
+    margin-top: 170px;
+    position: relative;
+    .aboutNum {
+      position: absolute;
+      top: -300px;
+      right: 0;
+      left: 0;
+      height: 240px;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      .content {
+        height: 100%;
+        display: flex;
+        background-image: url('@/assets/about/abg-1.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        @include media($breakpoint-md) {
+          background-image: none;
+        }
+        & > li {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          .number {
+            position: relative;
+            span:nth-of-type(1) {
+              font-size: 50px;
+              font-family: 'Microsoft JhengHei';
+            }
+            span:nth-of-type(2) {
+              position: absolute;
+              right: -16px;
+              top: 0;
+              font-size: 14px;
+              color: #59413d;
+              font-weight: bold;
+            }
+          }
+          .tit {
+            font-size: 14px;
+            font-family: 'Microsoft JhengHei';
+            color: #666;
+          }
+        }
+      }
+    }
+    .content {
+      .info {
+        color: #999999;
+        line-height: 26px;
+        margin: 0 60px 50px;
+        display: flex;
+        flex-direction: column;
+        @include media($breakpoint-md) {
+          line-height: 36px;
+          font-size: 14px;
+        }
+        .row {
+          text-indent: 2em;
+          margin-bottom: 20px;
+          word-wrap: break-word;
+          word-break: break-all;
+        }
+      }
+    }
+    .honor-box {
+      display: flex;
+      justify-content: space-between;
+      @include media($breakpoint-md) {
+        flex-direction: column;
+      }
+      .history {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .history-title {
+          display: flex;
+          justify-content: center;
+          padding-top: 4px;
+          font-size: 26px;
+          color: #f2e6ca;
+          letter-spacing: 0.5rem;
+          background: url('@/assets/juanzhou.png') no-repeat;
+          background-size: 100% 100%;
+          width: 200px;
+          height: 46px;
+        }
+        .history-content {
+          color: #999999;
+          margin-top: 30px;
+          & > p {
+            margin-bottom: 10px;
+          }
+          .year {
+            margin-right: 20px;
+          }
+        }
+      }
+      .honor-img {
+        width: 600px;
+        display: flex;
+        flex-wrap: wrap;
+        @include media($breakpoint-md) {
+          width: 100%;
+          margin-top: 30px;
+        }
+        .img-item {
+          flex: 46%;
+          margin-right: 2%;
+          margin-bottom: 30px;
+          &:nth-of-type(2n) {
+            margin-right: 0;
+          }
+          & > img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

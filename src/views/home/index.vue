@@ -74,7 +74,42 @@
           </div>
         </div>
       </div>
-      <div class="culture max-1700">
+      <div class="purpose max-1700">
+        <div class="warp-title">
+          <span>办 · 学 · 宗 · 旨</span>
+          <div class="line"></div>
+        </div>
+        <div class="purpose-subtitle">传承中医文化 福泽百姓大众</div>
+        <div class="purpose-box animate__fadeInUp onMounted-wow">
+          <div class="image" v-for="(img, imgIndex) in purposeList" :key="imgIndex">
+            <img :src="requirePath(img.imgPath)" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="honor max-1700">
+        <div class="warp-title">
+          <span>学 · 校 · 荣 · 誉</span>
+          <div class="line"></div>
+        </div>
+        <div class="honor-img animate__fadeInUp onMounted-wow">
+          <div class="img-item" v-for="(img, i) in honorImages" :key="i">
+            <img :src="requirePath(img)" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="question max-1700">
+        <div class="warp-title">
+          <span>重 · 点 · 答 · 疑</span>
+          <div class="line"></div>
+        </div>
+        <div class="question-box animate__fadeInRight onMounted-wow">
+          <div class="question-item" v-for="(item, qIndex) in questions" :key="qIndex">
+            <p class="title">{{ item.question }}</p>
+            <p class="answer">{{ item.answer }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="culture max-1700" v-if="false">
         <div class="warp-title animate__fadeInUp onMounted-wow">
           <span>企 · 业 · 文 · 化</span>
           <div class="line"></div>
@@ -91,7 +126,7 @@
           </li>
         </ul>
       </div>
-      <div class="storeInfo max-1700">
+      <div class="storeInfo max-1700" v-if="false">
         <div class="warp-title animate__fadeInUp onMounted-wow">
           <span>门 · 店 · 信 · 息</span>
           <div class="line"></div>
@@ -109,7 +144,7 @@
           <span class="btn" @click="() => router.push({ name: 'storeInfo' })">查看更多></span>
         </div>
       </div>
-      <div class="business max-1700">
+      <div class="business max-1700" v-if="false">
         <div class="warp-title animate__fadeInUp onMounted-wow">
           <span>经 · 典 · 项 · 目</span>
           <div class="line"></div>
@@ -133,7 +168,7 @@
           </span>
         </div>
       </div>
-      <div class="joinUs max-1700">
+      <div class="joinUs max-1700" v-if="false">
         <div class="warp-title animate__fadeInUp onMounted-wow">
           <span>品 · 牌 · 加 · 盟</span>
           <div class="line"></div>
@@ -286,35 +321,91 @@ const businessList1 = [
 
 const storyList = [
   {
-    title: '发源',
-    imgPath: 'brandCulture/001.jpg',
-    desc: '上世纪70年代末，初代创始人陶宜珍曾是芜湖市盲人五金厂的管理者，一名中共党员，在时代变革的重要时期，她多方考察、开拓创新，将中医推拿技术引流回本土加以学习、创新，从而创办了芜湖市第一家盲人按摩诊所。她在不断地学习与实践中总结创新出更具疗效的推拿按摩技法，不断完善，形成了一套独有的中医推拿体系。'
+    title: '王红梅',
+    imgPath: 'home/teaching/001.png',
+    desc: '盲人医疗按摩师，王红梅师徒传承会第一代传承人。1996年跟随陶宜珍老师系统地学习了推拿按摩的基本理论和实践技能，在临床实践中摸索出了王红梅推拿按摩的独特手法，是王红梅推拿按摩非遗技术传承人。'
   },
   {
-    title: '传承',
-    imgPath: 'brandCulture/002.jpg',
-    desc: '王红梅，师从陶宜珍，“按摩医师”资质，品牌创始人。1999年，王红梅老师继承了师父的遗志，弘扬传统技艺，不断宣传祖传推拿按摩技术，培养出众多优秀的推拿按摩技师，为推拿按摩行业这一中医国技的发展和社会残疾人群生存、创业等方面发挥着自己的微薄之力。'
+    title: '肖业宇',
+    imgPath: 'home/teaching/003.png',
+    desc: '农工党员，王红梅师徒传承会第二代传承人。毕业于安徽省中医药高专针推科，从小跟随母亲学习王红梅祖传按摩手法，持有高级按摩师资格证、康复保健调理师高级证书等相关职业技能资质等。王红梅祖传按摩技能非遗传承人，世界中医药学会联合会按摩推广委员会理事。数十年来将王红梅祖传按摩从一家门店运营发展至集培训学校，中草药种植基地和几十家门店为一体的集团化公司，在技术和经营管理理念上都有自己独到的见解。2023年被聘任为芜湖市产业教授。'
   },
   {
-    title: '发展',
-    imgPath: 'brandCulture/003.jpg',
-    desc: '肖业宇，王红梅老师嫡传弟子，立志将“王红梅”品牌全面推向社会，先后与芜湖市多家医院及专业院校合作，并创办王红梅按摩职业培训学校，解决企业人才储备问题；在品牌产品端为把控原材料品质，建立了中草药种植基地，总基地600亩，形成了产业开闭环，为走向品牌全国化而奠定了坚实基础。'
+    title: '程龙',
+    imgPath: 'home/teaching/002.png',
+    desc: '王红梅师徒传承会第三代传承人。2010年跟随肖业宇老师学习并且熟练王红梅推拿非遗技能，取得中医康复理疗专项职业技能证书等。现担任王红梅职业培训学校手法老师一职，共教出学生百余名。擅长调理颈肩腰腿疼痛类疾病。'
   },
   {
-    title: '使命',
-    imgPath: 'brandCulture/004.jpg',
-    desc: '从70年代末到21世纪初，三代人的砥砺前行。不同的时代造就不同的使命，在平凡的岗位上，一代又一代的“王红梅人”为继承弘扬传统手艺而前赴后继，为社会未来的大健康产业而添砖加瓦，这里面有你、有我、也有他……'
+    title: '王丽茹',
+    imgPath: 'home/teaching/004.png',
+    desc: '中共党员，王红梅师徒传承会第二代传承人。毕业于韩国全北国立大学食品营养专业，回国后学习中医，从业十余年，持有高级灸疗师证书、经络调理师证书、灸疗师师资证书、小儿推拿师师资证书、育婴师（三级）证书、健康管理师（三级）证书等相关职业技能资质等。创办茹德堂养生品牌，中医养生调理专家，深耕中国传统中医行业，将王红梅祖传按摩技法与其他中医外治疗法有效结合，摸索出各种体制以及疾病的养生调理良方。是世界中医药学会联合会艾灸推广委员会理事。2015年作为中方特派讲演代表，在世界中医药学会联合会主办的亚洲艾灸高峰论坛（日本大阪）作中医艾灸养生课题讲演汇报。人力资源和社会保障部中国就业培训指导中心(CETTIC)职业技能培训中心认证培训讲师。2023年被聘任为芜湖市产业教授。'
   },
   {
-    title: '使命',
-    imgPath: 'brandCulture/004.jpg',
-    desc: '从70年代末到21世纪初，三代人的砥砺前行。不同的时代造就不同的使命，在平凡的岗位上，一代又一代的“王红梅人”为继承弘扬传统手艺而前赴后继，为社会未来的大健康产业而添砖加瓦，这里面有你、有我、也有他……'
+    title: '袁磊',
+    imgPath: 'home/teaching/005.png',
+    desc: '执业中医师，现就职于北京同仁堂，毕业于北京中医药大学，数代家传，后拜师张启明教授，并跟诊皮肤科姚玉珍主任，针灸科刘赫主任学习，后结合自身多年临床经验和感悟，自创周天三心针法，与经方搭配，针药合用。临床擅长：各类经络瘀堵疼痛性疾病、各类胃病、失眠、焦虑抑郁、各类鼻炎、各类皮肤性问题、月经病、结节及肿瘤、小儿（多动症、抽动症、消化不良、成长缓慢、腺样体肥大、鼻炎）'
   },
   {
-    title: '使命',
-    imgPath: 'brandCulture/004.jpg',
-    desc: '从70年代末到21世纪初，三代人的砥砺前行。不同的时代造就不同的使命，在平凡的岗位上，一代又一代的“王红梅人”为继承弘扬传统手艺而前赴后继，为社会未来的大健康产业而添砖加瓦，这里面有你、有我、也有他……'
+    title: '毛新慧',
+    imgPath: 'home/teaching/005.png',
+    desc: '王红梅师徒传承会第三代传承人，2013年跟随王丽茹老师学习中医艾灸、按摩等技能至今。人社部高级灸疗师，王红梅职业培训学校手法教学老师，王红梅各门店技术总督导。擅长调理脾胃，妇科，颈椎病，腰椎病。'
   }
+]
+
+const purposeList = [
+  {
+    imgPath: 'corporateCulture/001.jpg'
+  },
+  {
+    imgPath: 'corporateCulture/002.jpg'
+  },
+  {
+    imgPath: 'corporateCulture/003.jpg'
+  },
+  {
+    imgPath: 'corporateCulture/004.jpg'
+  },
+  {
+    imgPath: 'corporateCulture/005.jpg'
+  },
+  {
+    imgPath: 'corporateCulture/006.jpg'
+  }
+]
+
+const questions = [
+  {
+    question: '1、问:学习推拿按摩要多长时间?',
+    answer:
+      '选择的课程不同，学时也是不一样的。看自身的学习接受能力，大概1-3个月左右，学校采用循环授课模式，随到随学，不限课时，学会再离校。并且终身免复学复训。'
+  },
+  {
+    question: '2、问:零基础可以学推拿和艾灸吗?',
+    answer:
+      '可以的，咱们学校不限年龄，不限基础，随到随学。新手0基础入学，名师亲身指导，实操一对一教学，培训内容全面，讲解详细而且不限课时。等你完全掌握再离校。'
+  },
+  {
+    question: '3、问:艾灸好学吗?多长时间学会?',
+    answer:
+      '艾灸是好学的。咱们老师都是采用的小班面授，根据学员的实际情况来教学。从理论到实操手把手教的。而且理论和实操穿插进行，如果您感觉知识点记录的不牢固，是可以终身免费复学的。具体时长看自身的学习接受能力大概1-3个月左右。'
+  },
+  {
+    question: '4、问:学员毕业后安排就业吗?待遇如何?',
+    answer:
+      '现在中医养生是个热门行业，回报更多更快:大健康产业越来被越多的人看到，机遇稍纵即逝，可遇不可求，当机遇到来时，要果断地识别并抓住机遇。越早学习就业越早，机会越多。优秀毕业学员可到集团旗下养生门店工作，学校也就近推荐就业并扶持开店的。'
+  }
+]
+
+const honorImages = [
+  'about/honorImage/002.jpg',
+  'about/honorImage/003.jpg',
+  'about/honorImage/0010.jpg',
+  'about/honorImage/008.jpg',
+  'about/honorImage/005.jpg',
+  'about/honorImage/006.jpg',
+  'about/honorImage/009.jpg',
+  'about/honorImage/001.jpg',
+  'about/honorImage/004.jpg'
 ]
 
 const businessList = [
@@ -584,6 +675,7 @@ const joinUsList = [
     }
   }
   .teaching {
+    max-width: 1200px;
     .story-box {
       margin-top: 60px;
       display: flex;
@@ -593,7 +685,7 @@ const joinUsList = [
       }
       .story-item {
         flex: 25%;
-        margin-right: 8%;
+        margin-right: 5%;
         margin-bottom: 60px;
         @include media($breakpoint-md) {
           margin-right: 0;
@@ -611,7 +703,7 @@ const joinUsList = [
             font-size: 24px;
             letter-spacing: 0.5rem;
             color: #f2e6ca;
-            width: 120px;
+            width: 150px;
             height: 60px;
             line-height: 66px;
             padding-left: 40px;
@@ -628,11 +720,79 @@ const joinUsList = [
         .story-content {
           & > img {
             width: 100%;
+            height: 440px;
             margin: 30px 0;
           }
           & > p {
             line-height: 30px;
           }
+        }
+      }
+    }
+  }
+  .purpose {
+    .purpose-subtitle {
+      font-size: 24px;
+      margin: 30px 0;
+      text-align: center;
+      color: #a12b3d;
+    }
+    .purpose-box {
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      width: 800px;
+      @include media($breakpoint-md) {
+        width: auto;
+      }
+      .image {
+        flex: 48%;
+        margin-bottom: 20px;
+        margin-right: 1%;
+        & > img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .question {
+    max-width: 1200px;
+    .question-box {
+      .question-item {
+        margin-bottom: 20px;
+        .title {
+          font-size: 24px;
+          color: #d22f34;
+          font-weight: bold;
+        }
+        .answer {
+          margin-top: 10px;
+          color: #666666;
+        }
+      }
+    }
+  }
+  .honor {
+    background-image: url('@/assets/home/index-product-bg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    .honor-img {
+      margin: 30px auto 0;
+      width: 1000px;
+      display: flex;
+      flex-wrap: wrap;
+      @include media($breakpoint-md) {
+        width: 100%;
+        margin-top: 30px;
+      }
+      .img-item {
+        flex: 33%;
+        flex-grow: 0;
+        margin-bottom: 30px;
+        & > img {
+          width: 100%;
+          height: 100%;
         }
       }
     }

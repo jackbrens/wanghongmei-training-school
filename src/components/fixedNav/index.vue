@@ -10,7 +10,7 @@
     <div class="fixed-nav-item">
       <img class="icon" :src="requirePath('rexian.png')" alt="" />
       <p>联系我们</p>
-      <div class="position-box contact"><p style="padding: 10px">400-8876-516</p></div>
+      <div class="position-box contact"><p style="padding: 10px">0553-4828989</p></div>
     </div>
   </div>
 </template>

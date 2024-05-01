@@ -1,7 +1,7 @@
 <template>
   <footer class="footer" :class="{ footerMargin: !route.meta?.footerNoMargin }">
     <div class="container wrapper">
-      <div class="menu-box">
+      <div class="menu-box" v-if="false">
         <p class="head-title">网站导航·MENU</p>
         <div class="line"></div>
         <ul>
@@ -19,10 +19,10 @@
         <p class="head-title">联系方式·CONTACT</p>
         <div class="line"></div>
         <div class="phone">
-          <span>联系电话：400-8876-516</span>
-          <span>邮箱：13956156908@126.com</span>
+          <span>座机电话：0553-4828989</span>
+          <span>手提电话：13515539155</span>
         </div>
-        <div class="address">地址：安徽省芜湖市黄山东路新华文沁苑1栋5单元4层</div>
+        <div class="address">地址：安徽省芜湖市镜湖区黄山东路新华文沁苑一栋五单元五层</div>
       </div>
       <div class="contact-pic">
         <img :src="requirePath('contact.jpg')" alt="" />

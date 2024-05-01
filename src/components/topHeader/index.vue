@@ -6,7 +6,19 @@
           <img :src="logoImg" alt="" />
         </div>
         <div class="right-top">
-          <ul class="uls">
+          <div class="top-title">王红梅职业培训学校</div>
+          <div class="hotline">
+            <div class="left-box">
+              <p>招生</p>
+              <p>热线</p>
+            </div>
+            <div class="line"></div>
+            <div class="right-box">
+              <p>0553-4828989</p>
+              <p>13515539155</p>
+            </div>
+          </div>
+          <ul class="uls" v-if="false">
             <li
               v-for="(li, index) in menuList"
               :class="{ active: route.name === li.routerName }"
@@ -22,7 +34,7 @@
     <!--移动端的导航-->
     <div class="top-bar-mobile">
       <img class="logo" :src="logoImg" alt="" @click="router.push('/')" />
-      <div class="menu-icon" @click="handleIcon"></div>
+      <div class="menu-icon" @click="handleIcon" v-if="false"></div>
       <!--移动端的导航下拉-->
       <div class="navbar-collapse" :class="{ active: isShowCollapse }">
         <ul class="nav-list">
@@ -80,7 +92,32 @@ const handleIcon = () => {
     }
     .right-top {
       display: flex;
+      flex: 1;
+      justify-content: space-between;
+      align-items: center;
     }
+  }
+}
+.top-title {
+  font-size: 50px;
+  margin-left: 100px;
+  font-family: 'FangSong', sans-serif;
+  font-weight: bold;
+  color: #4d4d4dff;
+}
+.hotline {
+  display: flex;
+  align-items: center;
+  .line {
+    height: 40px;
+    width: 1px;
+    background-color: #333333;
+    margin: 0 10px;
+  }
+  .left-box {
+  }
+  .right-box {
+    font-size: 20px;
   }
 }
 .uls {

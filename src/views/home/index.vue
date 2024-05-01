@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="home-swiper custom-swiper-box" style="">
+    <div class="home-swiper custom-swiper-box" style="" v-if="false">
       <swiper
         :autoplay="{
           delay: 3000,
@@ -22,7 +22,7 @@
     </div>
 
     <div class="main-container">
-      <div class="about max-1700">
+      <div class="about max-1700" v-if="false">
         <div class="warp-title animate__fadeInUp onMounted-wow">
           <span>公 · 司 · 介 · 绍</span>
           <div class="line"></div>
@@ -42,6 +42,26 @@
           </div>
         </div>
       </div>
+      <div class="about-us max-1700">
+        <div class="warp-title animate__fadeInUp onMounted-wow">
+          <span>学 · 校 · 简 · 介</span>
+          <div class="line"></div>
+        </div>
+        <div class="about-us-box wrapper animate__fadeInUp onMounted-wow">
+          <img class="image" :src="requirePath('home/company-img.jpg')" alt="" />
+          <div class="right-box">
+            <div class="title">王红梅职业培训学校</div>
+            <div class="desc">
+              <p>
+                王红梅职业培训学校，是一所中医养生类培训学校，其前身是有着六十多年历史沉淀的“王红梅祖传按摩”诊所，从传统的“传、帮、带”师带徒到规模化、系统化、科学化教学，学校自始以“传承中医精髓，弘扬中华文化”为己任，【王红梅祖传按摩】其技法荣获“非物质文化遗产”，【茹德堂古法艾灸】荣膺国家中医药管理局全国特种灸法研究专业委员会“艾灸推广示基地”。从2018年建校以来，学校累计为社会培养紧缺型中医推拿、中医艾灸和中医理疗等高技能应用型人才2000余名。
+              </p>
+              <p>
+                我校环境清心雅致，师资力量雄厚，教学老师均为中医技法非遗传承人，有着丰富的临床教学经验，理论学习和实操学习共同进行，理论联系实践，事半功倍。合格学员毕业可到集团旗下养生门店就业或扶持创业。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="business-main max-1700">
         <div class="main-box">
           <div class="head-box">
@@ -52,6 +72,71 @@
             <div class="item-content" v-for="(item, i) in businessList1" :key="i">
               <img :src="requirePath(item.imgPath)" alt="" />
               <p>{{ item.label }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="class-project max-1700">
+        <div class="warp-title">
+          <span>课 · 程 · 项 · 目</span>
+          <div class="line"></div>
+        </div>
+        <div class="class-box animate__fadeInUp onMounted-wow">
+          <p class="title"><span>免费试听</span><span>免费培训五天</span></p>
+          <div class="section">
+            <div class="section-item" v-for="(item, sIndex) in classProjectSection" :key="sIndex">
+              <p>{{ item.title }}</p>
+              <p>{{ item.subtitle }}</p>
+            </div>
+          </div>
+          <div class="package">
+            <div class="package-item">
+              <div class="img-item">
+                <div class="img-box">
+                  <img :src="requirePath('home/package/001.jpg')" alt="" />
+                </div>
+                <div class="img-box">
+                  <img :src="requirePath('home/package/002.jpg')" alt="" />
+                </div>
+              </div>
+              <div class="package-text">
+                <p>【 套餐一 】</p>
+                <p>王红梅祖传按摩班 + 中医理疗班</p>
+                <p>原价3980元，套餐价3500元</p>
+              </div>
+            </div>
+            <div class="package-item">
+              <div class="img-item">
+                <div class="img-box">
+                  <img :src="requirePath('home/package/003.jpg')" alt="" />
+                </div>
+                <div class="img-box">
+                  <img :src="requirePath('home/package/002.jpg')" alt="" />
+                </div>
+              </div>
+              <div class="package-text">
+                <p>【 套餐二 】</p>
+                <p>茹德堂古法艾灸班 + 中医理疗班</p>
+                <p>原价4780元，套餐价4200元</p>
+              </div>
+            </div>
+            <div class="package-item">
+              <div class="img-item">
+                <div class="img-box">
+                  <img :src="requirePath('home/package/001.jpg')" alt="" />
+                </div>
+                <div class="img-box">
+                  <img :src="requirePath('home/package/003.jpg')" alt="" />
+                </div>
+                <div class="img-box">
+                  <img :src="requirePath('home/package/002.jpg')" alt="" />
+                </div>
+              </div>
+              <div class="package-text">
+                <p>【 套餐三 】</p>
+                <p>王红梅祖传按摩班 + 茹德堂古法艾灸班 + 中医理疗班</p>
+                <p>原价7780元，套餐价5800元</p>
+              </div>
             </div>
           </div>
         </div>
@@ -328,7 +413,7 @@ const storyList = [
   {
     title: '肖业宇',
     imgPath: 'home/teaching/003.png',
-    desc: '农工党员，王红梅师徒传承会第二代传承人。毕业于安徽省中医药高专针推科，从小跟随母亲学习王红梅祖传按摩手法，持有高级按摩师资格证、康复保健调理师高级证书等相关职业技能资质等。王红梅祖传按摩技能非遗传承人，世界中医药学会联合会按摩推广委员会理事。数十年来将王红梅祖传按摩从一家门店运营发展至集培训学校，中草药种植基地和几十家门店为一体的集团化公司，在技术和经营管理理念上都有自己独到的见解。2023年被聘任为芜湖市产业教授。'
+    desc: '王红梅师徒传承会第二代传承人。王红梅祖传按摩技能非遗传承人，世界中医药学会联合会按摩推广委员会理事。数十年来将王红梅祖传按摩从一家门店运营发展至集培训学校，中草药种植基地和几十家门店为一体的集团化公司，在技术和经营管理理念上都有自己独到的见解。2023年被聘任为芜湖市产业教授。'
   },
   {
     title: '程龙',
@@ -338,7 +423,7 @@ const storyList = [
   {
     title: '王丽茹',
     imgPath: 'home/teaching/004.png',
-    desc: '中共党员，王红梅师徒传承会第二代传承人。毕业于韩国全北国立大学食品营养专业，回国后学习中医，从业十余年，持有高级灸疗师证书、经络调理师证书、灸疗师师资证书、小儿推拿师师资证书、育婴师（三级）证书、健康管理师（三级）证书等相关职业技能资质等。创办茹德堂养生品牌，中医养生调理专家，深耕中国传统中医行业，将王红梅祖传按摩技法与其他中医外治疗法有效结合，摸索出各种体制以及疾病的养生调理良方。是世界中医药学会联合会艾灸推广委员会理事。2015年作为中方特派讲演代表，在世界中医药学会联合会主办的亚洲艾灸高峰论坛（日本大阪）作中医艾灸养生课题讲演汇报。人力资源和社会保障部中国就业培训指导中心(CETTIC)职业技能培训中心认证培训讲师。2023年被聘任为芜湖市产业教授。'
+    desc: '王红梅师徒传承会第二代传承人。毕业于韩国全北国立大学食品营养专业，回国后学习中医，从业十余年，持有高级灸疗师证书、经络调理师证书、灸疗师师资证书、小儿推拿师师资证书、育婴师（三级）证书、健康管理师（三级）证书等相关职业技能资质等。创办茹德堂养生品牌，中医养生调理专家，深耕中国传统中医行业，将王红梅祖传按摩技法与其他中医外治疗法有效结合，摸索出各种体制以及疾病的养生调理良方。世界中医药学会联合会艾灸推广委员会理事。2015年作为中方特派讲演代表，在世界中医药学会联合会主办的亚洲艾灸高峰论坛（日本大阪）作中医艾灸养生课题讲演汇报。人力资源和社会保障部中国就业培训指导中心(CETTIC)职业技能培训中心认证培训讲师。2023年被聘任为芜湖市产业教授。'
   },
   {
     title: '袁磊',
@@ -347,7 +432,7 @@ const storyList = [
   },
   {
     title: '毛新慧',
-    imgPath: 'home/teaching/005.png',
+    imgPath: 'home/teaching/006.jpg',
     desc: '王红梅师徒传承会第三代传承人，2013年跟随王丽茹老师学习中医艾灸、按摩等技能至今。人社部高级灸疗师，王红梅职业培训学校手法教学老师，王红梅各门店技术总督导。擅长调理脾胃，妇科，颈椎病，腰椎病。'
   }
 ]
@@ -393,6 +478,21 @@ const questions = [
     question: '4、问:学员毕业后安排就业吗?待遇如何?',
     answer:
       '现在中医养生是个热门行业，回报更多更快:大健康产业越来被越多的人看到，机遇稍纵即逝，可遇不可求，当机遇到来时，要果断地识别并抓住机遇。越早学习就业越早，机会越多。优秀毕业学员可到集团旗下养生门店工作，学校也就近推荐就业并扶持开店的。'
+  }
+]
+
+const classProjectSection = [
+  {
+    title: '【 中医推拿 】',
+    subtitle: '推拿课程(5天+30天进阶课程)学费3000元'
+  },
+  {
+    title: '【 中医艾灸 】',
+    subtitle: '艾灸课程(12天)学费3800元'
+  },
+  {
+    title: '【 中医推拿 】',
+    subtitle: '副项课程(7天)学费980元包含(刮痧、拔罐、走罐、开背)'
   }
 ]
 
@@ -599,6 +699,55 @@ const joinUsList = [
       }
     }
   }
+  .about-us {
+    background-image: url('@/assets/home/company_bg_01.jpg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    .about-us-box {
+      padding-bottom: 130px;
+      margin-top: 50px;
+      display: flex;
+      @include media($breakpoint-md) {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 0;
+      }
+      .image {
+        width: 550px;
+        height: 365px;
+        margin-right: 50px;
+        @include media($breakpoint-md) {
+          max-width: 300px;
+          height: 210px;
+          margin-right: 0;
+        }
+      }
+      .right-box {
+        flex: 1;
+        font-size: 14px;
+        .title {
+          margin-top: 10px;
+          margin-bottom: 30px;
+          font-size: 26px;
+          color: #333333;
+          @include media($breakpoint-md) {
+            text-align: center;
+            margin-top: 30px;
+          }
+        }
+        .desc {
+          color: #999999;
+          line-height: 26px;
+          @include media($breakpoint-md) {
+            display: none;
+          }
+          & > p {
+            text-indent: 2em;
+          }
+        }
+      }
+    }
+  }
   .business-main {
     overflow: hidden;
     .main-box {
@@ -674,8 +823,72 @@ const joinUsList = [
       }
     }
   }
+  .class-project {
+    .class-box {
+      margin-top: 50px;
+      .title {
+        text-align: center;
+        font-size: 26px;
+        font-weight: bold;
+        & > span:nth-of-type(1) {
+          margin-right: 30px;
+        }
+      }
+      .section {
+        margin-top: 30px;
+        text-align: center;
+        .section-item {
+          & > p:nth-of-type(1) {
+            color: $juanzhou-color;
+            font-weight: bold;
+            font-size: 20px;
+          }
+        }
+      }
+      .package {
+        text-align: center;
+        .package-item {
+          text-align: center;
+          .img-item {
+            margin: 30px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            .img-box {
+              margin-right: 30px;
+              width: 300px;
+              height: 200px;
+              overflow: hidden;
+              border-radius: 50%;
+              @include media($breakpoint-md) {
+                width: 100px;
+                height: 100px;
+                margin-right: 10px;
+              }
+              & > img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+          .package-text {
+            & > p:nth-of-type(1) {
+              color: $juanzhou-color;
+              font-weight: bold;
+              font-size: 22px;
+            }
+            & > p:nth-of-type(2) {
+              color: $juanzhou-color;
+              font-weight: bold;
+              font-size: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
   .teaching {
-    max-width: 1200px;
+    max-width: 900px;
     .story-box {
       margin-top: 60px;
       display: flex;
@@ -686,7 +899,7 @@ const joinUsList = [
       .story-item {
         flex: 25%;
         margin-right: 5%;
-        margin-bottom: 60px;
+        margin-bottom: 30px;
         @include media($breakpoint-md) {
           margin-right: 0;
           padding: 0 30px;
@@ -720,7 +933,7 @@ const joinUsList = [
         .story-content {
           & > img {
             width: 100%;
-            height: 440px;
+            height: 350px;
             margin: 30px 0;
           }
           & > p {
@@ -759,6 +972,10 @@ const joinUsList = [
   .question {
     max-width: 1200px;
     .question-box {
+      margin-top: 50px;
+      @include media($breakpoint-md) {
+        margin: 50px 30px 0;
+      }
       .question-item {
         margin-bottom: 20px;
         .title {

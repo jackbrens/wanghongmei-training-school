@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="home-swiper custom-swiper-box" style="" v-if="false">
+    <div class="home-swiper custom-swiper-box" style="">
       <swiper
         :autoplay="{
           delay: 3000,
@@ -48,7 +48,7 @@
           <div class="line"></div>
         </div>
         <div class="about-us-box wrapper animate__fadeInUp onMounted-wow">
-          <img class="image" :src="requirePath('home/company-img.jpg')" alt="" />
+          <!--          <img class="image" :src="requirePath('home/company-img.jpg')" alt="" />-->
           <div class="right-box">
             <div class="title">王红梅职业培训学校</div>
             <div class="desc">
@@ -58,20 +58,6 @@
               <p>
                 我校环境清心雅致，师资力量雄厚，教学老师均为中医技法非遗传承人，有着丰富的临床教学经验，理论学习和实操学习共同进行，理论联系实践，事半功倍。合格学员毕业可到集团旗下养生门店就业或扶持创业。
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="business-main max-1700">
-        <div class="main-box">
-          <div class="head-box">
-            <div class="head-left">喜贯产业</div>
-            <div class="head-right">打造中医养生产业链全闭环体系</div>
-          </div>
-          <div class="container-box animate__fadeInUp onMounted-wow">
-            <div class="item-content" v-for="(item, i) in businessList1" :key="i">
-              <img :src="requirePath(item.imgPath)" alt="" />
-              <p>{{ item.label }}</p>
             </div>
           </div>
         </div>
@@ -102,8 +88,8 @@
               <div class="package-text">
                 <p>【 套餐一 】</p>
                 <p>王红梅祖传按摩班 + 中医理疗班</p>
-                <p>原价3980元，套餐价3500元</p>
               </div>
+              <div class="consult">立即咨询</div>
             </div>
             <div class="package-item">
               <div class="img-item">
@@ -117,8 +103,8 @@
               <div class="package-text">
                 <p>【 套餐二 】</p>
                 <p>茹德堂古法艾灸班 + 中医理疗班</p>
-                <p>原价4780元，套餐价4200元</p>
               </div>
+              <div class="consult">立即咨询</div>
             </div>
             <div class="package-item">
               <div class="img-item">
@@ -135,7 +121,31 @@
               <div class="package-text">
                 <p>【 套餐三 】</p>
                 <p>王红梅祖传按摩班 + 茹德堂古法艾灸班 + 中医理疗班</p>
-                <p>原价7780元，套餐价5800元</p>
+              </div>
+              <div class="consult">立即咨询</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="training max-1700">
+        <div class="warp-title">
+          <span>技能培训 · 选择正规 · 才有保障</span>
+          <div class="line"></div>
+        </div>
+        <div class="training-box animate__fadeInUp onMounted-wow">
+          <div class="box-one">
+            <div class="box-item" v-for="(item, i) in training" :key="i">
+              <img :src="requirePath(item.imgPath)" alt="" />
+              <p>{{ item.title }}</p>
+              <p>{{ item.subtitle }}</p>
+            </div>
+          </div>
+          <div class="box-two">
+            <div class="box-item" v-for="(item, i) in trainingTwo" :key="i">
+              <img :src="requirePath(item.imgPath)" alt="" />
+              <div class="right-box">
+                <p>{{ item.title }}</p>
+                <p>{{ item.subtitle }}</p>
               </div>
             </div>
           </div>
@@ -189,8 +199,25 @@
         </div>
         <div class="question-box animate__fadeInRight onMounted-wow">
           <div class="question-item" v-for="(item, qIndex) in questions" :key="qIndex">
-            <p class="title">{{ item.question }}</p>
+            <div class="title">
+              <p>{{ item.question }}</p>
+              <div class="consult">立即咨询</div>
+            </div>
             <p class="answer">{{ item.answer }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="business-main max-1700">
+        <div class="main-box">
+          <div class="head-box">
+            <div class="head-left">喜贯产业</div>
+            <div class="head-right">打造中医养生产业链全闭环体系</div>
+          </div>
+          <div class="container-box animate__fadeInUp onMounted-wow">
+            <div class="item-content" v-for="(item, i) in businessList1" :key="i">
+              <img :src="requirePath(item.imgPath)" alt="" />
+              <p>{{ item.label }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -331,10 +358,11 @@ const pagination = ref({
 const modules = ref([Navigation, Pagination, Autoplay])
 
 const swiperList = [
-  'swiper/banner33.jpg',
-  'swiper/banner1.jpg',
-  'storeInfo/store-info2.jpg',
-  'storeInfo/store-info10.jpg'
+  'home/company-img.jpg'
+  // 'swiper/banner33.jpg',
+  // 'swiper/banner1.jpg',
+  // 'storeInfo/store-info2.jpg',
+  // 'storeInfo/store-info10.jpg'
 ]
 
 const cultureList = [
@@ -423,12 +451,12 @@ const storyList = [
   {
     title: '王丽茹',
     imgPath: 'home/teaching/004.png',
-    desc: '王红梅师徒传承会第二代传承人。毕业于韩国全北国立大学食品营养专业，回国后学习中医，从业十余年，持有高级灸疗师证书、经络调理师证书、灸疗师师资证书、小儿推拿师师资证书、育婴师（三级）证书、健康管理师（三级）证书等相关职业技能资质等。创办茹德堂养生品牌，中医养生调理专家，深耕中国传统中医行业，将王红梅祖传按摩技法与其他中医外治疗法有效结合，摸索出各种体制以及疾病的养生调理良方。世界中医药学会联合会艾灸推广委员会理事。2015年作为中方特派讲演代表，在世界中医药学会联合会主办的亚洲艾灸高峰论坛（日本大阪）作中医艾灸养生课题讲演汇报。人力资源和社会保障部中国就业培训指导中心(CETTIC)职业技能培训中心认证培训讲师。2023年被聘任为芜湖市产业教授。'
+    desc: '王红梅师徒传承会第二代传承人。毕业于韩国全北国立大学食品营养专业，回国后学习中医，从业十余年，持有高级灸疗师证书、经络调理师证书、灸疗师师资证书、小儿推拿师师资证书、育婴师（三级）证书、健康管理师（三级）证书等相关职业技能资质等。创办茹德堂养生品牌，中医养生调理专家，深耕中国传统中医行业，将王红梅祖传按摩技法与其他中医外治疗法有效结合，摸索出各种体制以及疾病的养生调理良方。世界中医药学会联合会艾灸推广委员会理事。人力资源和社会保障部中国就业培训指导中心(CETTIC)职业技能培训中心认证培训讲师。2023年被聘任为芜湖市产业教授。'
   },
   {
     title: '袁磊',
     imgPath: 'home/teaching/005.png',
-    desc: '执业中医师，现就职于北京同仁堂，毕业于北京中医药大学，数代家传，后拜师张启明教授，并跟诊皮肤科姚玉珍主任，针灸科刘赫主任学习，后结合自身多年临床经验和感悟，自创周天三心针法，与经方搭配，针药合用。临床擅长：各类经络瘀堵疼痛性疾病、各类胃病、失眠、焦虑抑郁、各类鼻炎、各类皮肤性问题、月经病、结节及肿瘤、小儿（多动症、抽动症、消化不良、成长缓慢、腺样体肥大、鼻炎）'
+    desc: '执业中医师，现就职于北京同仁堂，毕业于北京中医药大学，数代家传，后拜师张启明教授，并跟诊皮肤科姚玉珍主任，针灸科刘赫主任学习，后结合自身多年临床经验和感悟，自创周天三心针法，与经方搭配，针药合用。临床擅长：各类经络瘀堵疼痛性疾病、各类胃病、失眠、焦虑抑郁、各类鼻炎、各类皮肤性问题、月经病、结节及肿瘤、小儿（多动症、抽动症、消化不良、成长缓慢、腺样体肥大、鼻炎）。'
   },
   {
     title: '毛新慧',
@@ -536,6 +564,67 @@ const joinUsList = [
   'swiper/banner002.jpg',
   'swiper/banner003.jpg',
   'swiper/banner004.jpg'
+]
+
+const training = [
+  {
+    imgPath: 'home/training/4.jpg',
+    title: '证书含金量高',
+    subtitle: '创业、就业无忧'
+  },
+  {
+    imgPath: 'home/training/5.jpg',
+    title: '0基础轻松学',
+    subtitle: '创业、就业无忧'
+  },
+  {
+    imgPath: 'home/training/6.jpg',
+    title: '低门槛',
+    subtitle: '无需学历经验门槛低'
+  },
+  {
+    imgPath: 'home/training/7.jpg',
+    title: '精良师资',
+    subtitle: '行业21年以上名师资'
+  },
+  {
+    imgPath: 'home/training/8.jpg',
+    title: '学习保障',
+    subtitle: '免费复学，定期进修'
+  },
+  {
+    imgPath: 'home/training/9.jpg',
+    title: '创业指导',
+    subtitle: '导师团队一站式扶持'
+  },
+  {
+    imgPath: 'home/training/10.jpg',
+    title: '提供食宿',
+    subtitle: '环境好、饭菜香'
+  }
+]
+
+const trainingTwo = [
+  {
+    imgPath: 'home/training/11.jpg',
+    title: '免费试听',
+    subtitle: '免费试听，满意后报名（学的更安心，学的更专业）'
+  },
+  {
+    imgPath: 'home/training/12.jpg',
+    title: '预约 课程免费送',
+    subtitle: '网上报名咨询，即可获得一门免费视频课程（限时领取）'
+  },
+  {
+    imgPath: 'home/training/13.jpg',
+    title: '后期免费进修',
+    subtitle: '后期可返回学校免费进修新技术'
+  },
+  {
+    imgPath: 'home/training/14.jpg',
+    title: '多咨询 多对比 多考察',
+    subtitle: '观看老师朋友圈，了解更多课程详情。'
+  }
 ]
 </script>
 <style lang="scss" scoped>
@@ -726,6 +815,7 @@ const joinUsList = [
         flex: 1;
         font-size: 14px;
         .title {
+          text-align: center;
           margin-top: 10px;
           margin-bottom: 30px;
           font-size: 26px;
@@ -739,7 +829,8 @@ const joinUsList = [
           color: #999999;
           line-height: 26px;
           @include media($breakpoint-md) {
-            display: none;
+            //display: none;
+            margin: 0 30px;
           }
           & > p {
             text-indent: 2em;
@@ -848,7 +939,9 @@ const joinUsList = [
       .package {
         text-align: center;
         .package-item {
-          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
           .img-item {
             margin: 30px 0;
             width: 100%;
@@ -883,6 +976,113 @@ const joinUsList = [
               font-size: 22px;
             }
           }
+          .consult {
+            margin: 30px 0;
+            color: #ffffff;
+            background-color: $juanzhou-color;
+            width: 130px;
+            padding: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            &:hover {
+              background-color: rgb(210, 45, 50, 0.6);
+            }
+          }
+        }
+      }
+    }
+  }
+  .training {
+    max-width: 1200px;
+    .warp-title {
+      & > span {
+        @include media($breakpoint-md) {
+          font-size: 20px;
+        }
+      }
+    }
+    .training-box {
+      .box-one {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        @include media($breakpoint-md) {
+          justify-content: flex-start;
+        }
+        .box-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-right: 20px;
+          @include media($breakpoint-md) {
+            width: 50%;
+            margin-right: 0;
+            margin-bottom: 30px;
+          }
+          & > img {
+            @include media($breakpoint-md) {
+              width: 100px;
+            }
+          }
+          & > p:nth-of-type(1) {
+            color: #666;
+            font-size: 20px;
+            margin: 14px 0;
+            @include media($breakpoint-md) {
+              font-size: 18px;
+            }
+          }
+          & > p:nth-of-type(2) {
+            color: #999;
+            font-size: 16px;
+            @include media($breakpoint-md) {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+      .box-two {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        border: 1px solid #e4e4e4;
+        flex-wrap: wrap;
+        @include media($breakpoint-md) {
+          margin-top: 0;
+        }
+        .box-item {
+          width: 25%;
+          display: flex;
+          align-items: center;
+          border-right: 1px solid #e4e4e4;
+          padding: 20px 10px;
+          @include media($breakpoint-md) {
+            width: 50%;
+            border-bottom: 1px solid #e4e4e4;
+          }
+          & > img {
+            @include media($breakpoint-md) {
+              width: 35px;
+            }
+          }
+          .right-box {
+            margin-left: 10px;
+            & > p:nth-of-type(1) {
+              font-size: 20px;
+              color: #666666;
+              @include media($breakpoint-md) {
+                font-size: 16px;
+              }
+            }
+            & > p:nth-of-type(2) {
+              font-size: 14px;
+              color: #666666;
+              @include media($breakpoint-md) {
+                font-size: 13px;
+              }
+            }
+          }
         }
       }
     }
@@ -898,7 +1098,7 @@ const joinUsList = [
       }
       .story-item {
         flex: 25%;
-        margin-right: 5%;
+        margin-right: 8%;
         margin-bottom: 30px;
         @include media($breakpoint-md) {
           margin-right: 0;
@@ -931,10 +1131,20 @@ const joinUsList = [
           }
         }
         .story-content {
+          display: flex;
+          flex-direction: column;
+          @include media($breakpoint-md) {
+            align-items: center;
+          }
           & > img {
             width: 100%;
             height: 350px;
             margin: 30px 0;
+            @include media($breakpoint-md) {
+              width: 180px;
+              height: 250px;
+              font-size: 18px;
+            }
           }
           & > p {
             line-height: 30px;
@@ -982,6 +1192,25 @@ const joinUsList = [
           font-size: 24px;
           color: #d22f34;
           font-weight: bold;
+          display: flex;
+          align-items: center;
+          @include media($breakpoint-md) {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .consult {
+            margin-left: 20px;
+            background-color: #ffcc66;
+            font-weight: 500;
+            color: #ffffff;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 8px;
+            &:hover {
+              background-color: rgba(255, 204, 102, 0.6);
+            }
+          }
         }
         .answer {
           margin-top: 10px;

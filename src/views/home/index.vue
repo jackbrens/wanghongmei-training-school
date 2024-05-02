@@ -120,9 +120,9 @@
               </div>
               <div class="package-text">
                 <p>【 套餐三 】</p>
-                <p>王红梅祖传按摩班 +</p>
-                <p>茹德堂古法艾灸班 +</p>
-                <p>中医理疗班</p>
+                <p>王红梅祖传按摩班</p>
+                <p>+ 茹德堂古法艾灸班</p>
+                <p>+ 中医理疗班</p>
               </div>
               <div class="consult">立即咨询</div>
             </div>

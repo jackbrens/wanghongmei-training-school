@@ -187,7 +187,7 @@ const handleIcon = () => {
   justify-content: space-between;
   padding: 6px;
   .logo {
-    width: 250px;
+    width: 300px;
   }
   .menu-icon {
     background: url('@/assets/menu.svg') no-repeat;

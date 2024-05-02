@@ -6,7 +6,9 @@
           <img :src="logoImg" alt="" />
         </div>
         <div class="right-top">
-          <div class="top-title">王红梅职业培训学校</div>
+          <div class="school-logo">
+            <img :src="requirePath('logo/school-logo.png')" alt="" />
+          </div>
           <div class="hotline">
             <div class="left-box">
               <p>招生</p>
@@ -54,7 +56,7 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router'
 import logoImg from '@/assets/menu/logo2.png'
-import { menuList } from '@/utils/index.js'
+import { menuList, requirePath } from '@/utils/index.js'
 import { ref } from 'vue'
 
 const router = useRouter()
@@ -98,11 +100,13 @@ const handleIcon = () => {
     }
   }
 }
-.top-title {
-  font-size: 50px;
-  margin-left: 20px;
-  font-family: '隶书', '宋体', Arial, serif;
-  color: #4d4d4dff;
+.school-logo {
+  flex: 1;
+  margin: 0 30px;
+  & > img {
+    width: 90%;
+    height: 100%;
+  }
 }
 .hotline {
   display: flex;

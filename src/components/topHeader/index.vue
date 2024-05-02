@@ -3,12 +3,12 @@
     <div class="top-bar">
       <div class="wrapper top-box">
         <div class="logo" @click="router.push('/')">
-          <img :src="logoImg" alt="" />
+          <img :src="requirePath('logo/school-logo.png')" alt="" />
         </div>
         <div class="right-top">
-          <div class="school-logo">
-            <img :src="requirePath('logo/school-logo.png')" alt="" />
-          </div>
+          <!--          <div class="school-logo">-->
+          <!--            <img :src="requirePath('logo/school-logo.png')" alt="" />-->
+          <!--          </div>-->
           <div class="hotline">
             <div class="left-box">
               <p>招生</p>
@@ -35,7 +35,12 @@
     </div>
     <!--移动端的导航-->
     <div class="top-bar-mobile">
-      <img class="logo" :src="logoImg" alt="" @click="router.push('/')" />
+      <img
+        class="logo"
+        :src="requirePath('logo/school-logo.png')"
+        alt=""
+        @click="router.push('/')"
+      />
       <div class="menu-icon" @click="handleIcon" v-if="false"></div>
       <!--移动端的导航下拉-->
       <div class="navbar-collapse" :class="{ active: isShowCollapse }">
@@ -85,7 +90,7 @@ const handleIcon = () => {
     height: 80px;
     .logo {
       padding: 10px 0;
-      width: 300px;
+      width: 600px;
       cursor: pointer;
       & > img {
         width: 100%;
@@ -94,7 +99,7 @@ const handleIcon = () => {
     }
     .right-top {
       display: flex;
-      flex: 1;
+      //flex: 1;
       justify-content: space-between;
       align-items: center;
     }
@@ -182,7 +187,7 @@ const handleIcon = () => {
   justify-content: space-between;
   padding: 6px;
   .logo {
-    width: 150px;
+    width: 250px;
   }
   .menu-icon {
     background: url('@/assets/menu.svg') no-repeat;

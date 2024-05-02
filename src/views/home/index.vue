@@ -512,15 +512,15 @@ const questions = [
 const classProjectSection = [
   {
     title: '【 中医推拿 】',
-    subtitle: '推拿课程(5天+30天进阶课程)学费3000元'
+    subtitle: '推拿课程(5天+30天进阶课程)'
   },
   {
     title: '【 中医艾灸 】',
-    subtitle: '艾灸课程(12天)学费3800元'
+    subtitle: '艾灸课程(12天)'
   },
   {
     title: '【 中医推拿 】',
-    subtitle: '副项课程(7天)学费980元包含(刮痧、拔罐、走罐、开背)'
+    subtitle: '副项课程(7天)包含(刮痧、拔罐、走罐、开背)'
   }
 ]
 
@@ -813,20 +813,19 @@ const trainingTwo = [
       }
       .right-box {
         flex: 1;
-        font-size: 14px;
+        font-size: 16px;
+        color: #333333;
         .title {
           text-align: center;
           margin-top: 10px;
           margin-bottom: 30px;
           font-size: 26px;
-          color: #333333;
           @include media($breakpoint-md) {
             text-align: center;
             margin-top: 30px;
           }
         }
         .desc {
-          color: #999999;
           line-height: 26px;
           @include media($breakpoint-md) {
             //display: none;
@@ -929,6 +928,7 @@ const trainingTwo = [
         margin-top: 30px;
         text-align: center;
         .section-item {
+          margin-top: 30px;
           & > p:nth-of-type(1) {
             color: $juanzhou-color;
             font-weight: bold;
@@ -1197,6 +1197,7 @@ const trainingTwo = [
           @include media($breakpoint-md) {
             flex-direction: column;
             align-items: flex-start;
+            font-size: 20px;
           }
           .consult {
             margin-left: 20px;
@@ -1209,6 +1210,10 @@ const trainingTwo = [
             border-radius: 8px;
             &:hover {
               background-color: rgba(255, 204, 102, 0.6);
+            }
+            @include media($breakpoint-md) {
+              flex-direction: column;
+              align-self: center;
             }
           }
         }

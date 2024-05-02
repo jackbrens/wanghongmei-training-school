@@ -102,7 +102,6 @@ const handleIcon = () => {
   font-size: 50px;
   margin-left: 20px;
   font-family: '隶书', '宋体', Arial, serif;
-  font-weight: bold;
   color: #4d4d4dff;
 }
 .hotline {

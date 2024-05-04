@@ -89,7 +89,7 @@
                 <p>【 套餐一 】</p>
                 <p>王红梅祖传按摩班 + 中医理疗班</p>
               </div>
-              <div class="consult">立即咨询</div>
+              <div class="consult" @click="toCustomer">立即咨询</div>
             </div>
             <div class="package-item">
               <div class="img-item">
@@ -104,7 +104,7 @@
                 <p>【 套餐二 】</p>
                 <p>茹德堂古法艾灸班 + 中医理疗班</p>
               </div>
-              <div class="consult">立即咨询</div>
+              <div class="consult" @click="toCustomer">立即咨询</div>
             </div>
             <div class="package-item">
               <div class="img-item">
@@ -124,7 +124,7 @@
                 <p>+ 茹德堂古法艾灸班</p>
                 <p>+ 中医理疗班</p>
               </div>
-              <div class="consult">立即咨询</div>
+              <div class="consult" @click="toCustomer">立即咨询</div>
             </div>
           </div>
         </div>
@@ -199,11 +199,11 @@
           <span>重 · 点 · 答 · 疑</span>
           <div class="line"></div>
         </div>
-        <div class="question-box animate__fadeInRight onMounted-wow">
+        <div class="question-box animate__fadeInUp onMounted-wow">
           <div class="question-item" v-for="(item, qIndex) in questions" :key="qIndex">
             <div class="title">
               <p>{{ item.question }}</p>
-              <div class="consult">立即咨询</div>
+              <div class="consult" @click="toCustomer">立即咨询</div>
             </div>
             <p class="answer">{{ item.answer }}</p>
           </div>
@@ -628,6 +628,12 @@ const trainingTwo = [
     subtitle: '观看老师朋友圈，了解更多课程详情。'
   }
 ]
+
+const toCustomer = () => {
+  console.log('toCustomer')
+  location.href =
+    'http://kf.whmpx.com/index/index/home?visiter_id=&visiter_name=&avatar=&business_id=1&groupid=1&special=1'
+}
 </script>
 <style lang="scss" scoped>
 @import '@/assets/style/variable';

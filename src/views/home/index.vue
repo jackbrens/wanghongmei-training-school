@@ -68,7 +68,7 @@
           <div class="line"></div>
         </div>
         <div class="class-box animate__fadeInUp onMounted-wow">
-          <p class="title"><span>免费试听</span><span>免费培训五天</span></p>
+          <p class="title"><span>免费试听</span></p>
           <div class="section">
             <div class="section-item" v-for="(item, sIndex) in classProjectSection" :key="sIndex">
               <p>{{ item.title }}</p>
@@ -437,32 +437,32 @@ const businessList1 = [
 const storyList = [
   {
     title: '王红梅',
-    imgPath: 'home/teaching/001.png',
+    imgPath: 'home/teaching/05.jpg',
     desc: '盲人医疗按摩师，王红梅师徒传承会第一代传承人。1996年跟随陶宜珍老师系统地学习了推拿按摩的基本理论和实践技能，在临床实践中摸索出了王红梅推拿按摩的独特手法，是王红梅推拿按摩非遗技术传承人。'
   },
   {
     title: '肖业宇',
-    imgPath: 'home/teaching/003.png',
+    imgPath: 'home/teaching/03.jpg',
     desc: '王红梅师徒传承会第二代传承人。王红梅祖传按摩技能非遗传承人，世界中医药学会联合会按摩推广委员会理事。数十年来将王红梅祖传按摩从一家门店运营发展至集培训学校，中草药种植基地和几十家门店为一体的集团化公司，在技术和经营管理理念上都有自己独到的见解。2023年被聘任为芜湖市产业教授。'
   },
   {
     title: '王丽茹',
-    imgPath: 'home/teaching/004.png',
+    imgPath: 'home/teaching/06.jpg',
     desc: '王红梅师徒传承会第二代传承人。毕业于韩国全北国立大学食品营养专业，回国后学习中医，从业十余年，持有高级灸疗师证书、经络调理师证书、灸疗师师资证书、小儿推拿师师资证书、育婴师（三级）证书、健康管理师（三级）证书等相关职业技能资质等。创办茹德堂养生品牌，中医养生调理专家，深耕中国传统中医行业，将王红梅祖传按摩技法与其他中医外治疗法有效结合，摸索出各种体制以及疾病的养生调理良方。世界中医药学会联合会艾灸推广委员会理事。人力资源和社会保障部中国就业培训指导中心(CETTIC)职业技能培训中心认证培训讲师。2023年被聘任为芜湖市产业教授。'
   },
   {
     title: '袁磊',
-    imgPath: 'home/teaching/005.png',
+    imgPath: 'home/teaching/01.jpg',
     desc: '执业中医师，现就职于北京同仁堂，毕业于北京中医药大学，数代家传，后拜师张启明教授，并跟诊皮肤科姚玉珍主任，针灸科刘赫主任学习，后结合自身多年临床经验和感悟，自创周天三心针法，与经方搭配，针药合用。临床擅长：各类经络瘀堵疼痛性疾病、各类胃病、失眠、焦虑抑郁、各类鼻炎、各类皮肤性问题、月经病、结节及肿瘤、小儿（多动症、抽动症、消化不良、成长缓慢、腺样体肥大、鼻炎）。'
   },
   {
     title: '程龙',
-    imgPath: 'home/teaching/002.png',
+    imgPath: 'home/teaching/04.jpg',
     desc: '王红梅师徒传承会第三代传承人。2010年跟随肖业宇老师学习并且熟练王红梅推拿非遗技能，取得中医康复理疗专项职业技能证书等。现担任王红梅职业培训学校手法老师一职，共教出学生百余名。擅长调理颈肩腰腿疼痛类疾病。'
   },
   {
     title: '毛新慧',
-    imgPath: 'home/teaching/006.jpg',
+    imgPath: 'home/teaching/02.jpg',
     desc: '王红梅师徒传承会第三代传承人，2013年跟随王丽茹老师学习中医艾灸、按摩等技能至今。人社部高级灸疗师，王红梅职业培训学校手法教学老师，王红梅各门店技术总督导。擅长调理脾胃，妇科，颈椎病，腰椎病。'
   }
 ]
@@ -587,7 +587,7 @@ const training = [
   {
     imgPath: 'home/training/7.jpg',
     title: '精良师资',
-    subtitle: '行业21年以上名师资'
+    subtitle: '中医技法非遗传承人'
   },
   {
     imgPath: 'home/training/8.jpg',
@@ -927,9 +927,9 @@ const toCustomer = () => {
         text-align: center;
         font-size: 26px;
         font-weight: bold;
-        & > span:nth-of-type(1) {
-          margin-right: 30px;
-        }
+        //& > span:nth-of-type(1) {
+        //  margin-right: 30px;
+        //}
       }
       .section {
         margin-top: 30px;

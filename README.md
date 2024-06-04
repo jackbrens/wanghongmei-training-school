@@ -1,6 +1,6 @@
 # wanghongmei-training-school
 
-This template should help get you started developing with Vue 3 in Vite.
+This template should help get you started developing with Vue 3 in Vite.    
 
 ## Recommended IDE Setup
 
@@ -8,12 +8,12 @@ This template should help get you started developing with Vue 3 in Vite.
 
 ## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+See [Vite Configuration Reference](https://vitejs.dev/config/). 
 
 ## Project Setup
 
 ```sh
-pnpm install
+pnpm install 
 ```
 
 ### Compile and Hot-Reload for Development

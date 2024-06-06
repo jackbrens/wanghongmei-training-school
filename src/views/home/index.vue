@@ -79,9 +79,46 @@
           <img :src="requirePath('newHome/title-item-4.png')" alt="师资力量" />
         </div>
         <div class="item-title-tip">师资雄厚&nbsp;·&nbsp;非遗传承</div>
-        <!-- 轮播图区域 -->
+        <!-- 轮播图区域-->
         <div class="teachershuge-swiperBox">
-
+          <swiper
+            :loop="true"
+            :autoplay="{ delay: 3000, disableOnInteraction: false }"
+            :effect="'coverflow'"
+            :grabCursor="true"
+            :centeredSlides="true"
+            :slidesPerView="'2'"
+            :coverflowEffect="{
+              rotate: 0,
+              stretch: 0,
+              depth: 300,
+              modifier: 1,
+              slideShadows: false
+            }"
+            :initial-slide="0"
+            :pagination="{
+              clickable: true
+            }"
+            :modules="teachershugeModules"
+            class="teachershuge-Swiper"
+          >
+            <swiper-slide
+              class="teachershuge-swiper-slide"
+              v-for="item in teacherDataArr"
+              :key="item.name"
+            >
+              <div class="profile-img">
+                <img :src="requirePath(item.imgUrl)" :alt="item.name" />
+              </div>
+              <div class="right-description">
+                <div class="name-img">
+                  <img :src="requirePath(item.nameImg)" :alt="item.name" />
+                </div>
+                <div class="desc-text">{{ item.desc }}</div>
+              </div>
+              <!-- <img :src="requirePath('newHome/user-text-bg.png')"  /> -->
+            </swiper-slide>
+          </swiper>
         </div>
       </div>
 
@@ -91,8 +128,38 @@
           <img :src="requirePath('newHome/title-item-5.png')" alt="办学宗旨" />
         </div>
         <div class="item-title-tip">传承中医文化&nbsp;福泽百姓大众</div>
-        <div class="school-objective-swiperBox"></div>
-        
+        <!-- 轮播图区域 -->
+        <div class="school-objective-swiperBox">
+          <swiper
+            :loop="true"
+            :autoplay="{ delay: 3000, disableOnInteraction: false }"
+            :effect="'coverflow'"
+            :grabCursor="true"
+            :centeredSlides="true"
+            :slidesPerView="'3'"
+            :coverflowEffect="{
+            rotate: 0,
+            stretch: 0,
+            depth: 300,
+            modifier: 1,
+            slideShadows: true
+          }"
+            :initial-slide="0"
+            :pagination="{
+            clickable: true
+          }"
+            :modules="modules"
+            class="mySwiper"
+          >
+            <swiper-slide
+              class="schoolobjective-swiper-slide"
+              v-for="item in schoolObjectiveImgArr"
+              :key="item"
+            >
+              <img :src="requirePath(item)" />
+            </swiper-slide>
+          </swiper>
+        </div>
       </div>
       <!-- 学校荣誉 -->
       <div class="school-honor">
@@ -100,10 +167,31 @@
           <img :src="requirePath('newHome/title-item-6.png')" alt="学校荣誉" />
         </div>
         <div class="item-title-tip">传承中医文化&nbsp;福泽百姓大众</div>
-        <div class="school-honor-swiperBox"></div>
+        <div class="school-honor-swiperBox">
+          <swiper
+            :loop="true"
+            :autoplay="{ delay: 3000, disableOnInteraction: false }"
+            :effect="'coverflow'"
+            :grabCursor="true"
+            :centeredSlides="true"
+            :slidesPerView="'3'"
+            :initial-slide="0"
+            :pagination="{
+            clickable: true
+          }"
+            class="mySwiper"
+            :modules="modules"
+          >
+            <swiper-slide
+              class="schoolhonor-swiper-slide"
+              v-for="item in schoolHonorImgArr"
+              :key="item"
+            >
+              <img :src="requirePath(item)" />
+            </swiper-slide>
+          </swiper>
+        </div>
       </div>
-      
-
 
       <!-- 重点答疑 -->
       <div class="answer-questions">
@@ -135,8 +223,9 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/autoplay'
+import 'swiper/css/effect-fade'
 // import required modules
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules'
 import { requirePath } from '@/utils/index.js'
 import { useRouter } from 'vue-router'
 
@@ -147,9 +236,92 @@ const questionsList = ref([
   { q: `学员毕业后安排就业吗?待遇如何?`, a: `现在中医养生是个热门行业，回报更多更快:大健康产业越来被越多的人看到，机遇稍纵即逝，可遇不可求，当机遇到来时，要果断地识别并抓住机遇。越早学习就业越早，机会越多。优秀毕业学员可到集团旗下养生门店工作，学校也就近推荐就业并扶持开店的。` },
 ])
 
+//办学宗旨 轮播图
+const schoolObjectiveImgArr = ref([
+  `corporateCulture/001.jpg`,
+  `corporateCulture/002.jpg`,
+  `corporateCulture/003.jpg`,
+  `corporateCulture/004.jpg`,
+  `corporateCulture/005.jpg`
+])
+
+//学校荣誉 轮播图
+const schoolHonorImgArr = ref([
+  `qualifications/photo1.jpg`,
+  `qualifications/photo2.jpg`,
+  `qualifications/photo3.jpg`,
+  `qualifications/photo4.jpg`,
+  `qualifications/photo5.jpg`,
+  `qualifications/photo6.jpg`,
+  `qualifications/photo7.jpg`,
+  `qualifications/photo8.jpg`,
+  `qualifications/photo9.jpg`,
+]);
+
+
+// 老师 轮播图
+const teacherDataArr = ref([
+  {
+    name: `程龙`,
+    nameImg: `newHome/teacher/nameimg/程龙.png`,
+    imgUrl: `newHome/teacher/程龙.jpg`,
+    desc: `王红梅师徒传承会第三代传承人。2010年跟随肖业宇老师学习并且熟练王红梅推拿非遗技能，取得中医康复理疗专项职业技能等证书。现担任王红梅职业培训学校手法老师一职，培养出众多技能型推拿专业的学生，特别擅长调理颈肩腰腿疼痛类疾病。`
+  },
+  {
+    name: `居瑷炀`,
+    nameImg: `newHome/teacher/nameimg/居瑷炀.png`,
+    imgUrl: `newHome/teacher/居瑷炀.jpg`,
+    desc: `出身军旅，王红梅师徒传承会第三代传承人。熟练王红梅推拿非遗技能，取得中医康复理疗专项职业技能等证书，长期从事中医推拿临床实践及教学工作，具有丰富的临床及教学经验。作为一名优秀的中医推广工作者，居老师始终不忘初心，立志于为国家大健康产业发展倾尽绵薄之力。`
+  },
+  {
+    name: `毛新慧`,
+    nameImg: `newHome/teacher/nameimg/毛新慧.png`,
+    imgUrl: `newHome/teacher/毛新慧.jpg`,
+    desc: `王红梅师徒传承会第三代传承人，2013年跟随王丽茹老师学习中医艾灸、按摩等技能至今。人社部高级灸疗师，王红梅职业培训学校手法教学老师，王红梅各门店技术总督导。特别擅长调理脾胃，妇科，颈椎病，腰椎病。`
+  },
+  {
+    name: `梅利民`,
+    nameImg: `newHome/teacher/nameimg/梅利民.png`,
+    imgUrl: `newHome/teacher/梅利民.jpg`,
+    desc: `安徽省推拿专业委员会员学科带头人，安徽中医药大学硕士生导师、芜湖市政协委员,中华中医药学会中医疼痛学会常委、中华中医药学会中医推拿学会委员、全国脊诊整脊技术学术委员会常委、安徽省推拿专业委员会副主任委员、安徽省中医药风湿病专业常委、安徽省风湿病学委员会委员。国家卫生健康委员会规划教材暨全国中医药高职高专教育教材《推拿治疗》第三版、第四版主编, 《保健按摩学》副主编、 《头痛眩晕》副主编。`
+  },
+  {
+    name: `王红梅`,
+    nameImg: `newHome/teacher/nameimg/王红梅.png`,
+    imgUrl: `newHome/teacher/王红梅.jpg`,
+    desc: `盲人医疗按摩师，王红梅师徒传承会第一代传承人、中华医学国际发展联合会推拿按摩学科主任委员、安徽省扶残助残先进个人。1996年跟随陶宜珍老师系统地学习了推拿按摩的基本理论和实践技能，在长期的中医临床实践中摸索出了王红梅推拿按摩的独特手法：“触摸诊法”、“肘滚顺筋法”和“踩桥理疗法”，将中医推拿技术发扬光大。“王红梅”作为芜湖市非物质文化遗产单位，慕名而来求医或学习者众多，几十年来，王红梅老师亲自通过“师带徒”的方式培养徒弟或学员近三千人。`
+  },
+  {
+    name: `王丽茹`,
+    nameImg: `newHome/teacher/nameimg/王丽茹.png`,
+    imgUrl: `newHome/teacher/王丽茹.jpg`,
+    desc: `中共党员，王红梅师徒传承会第二代传承人，人力资源和社会保障部中国就业培训指导中心(CETTIC)职业技能培训中心认证培训讲师。从业十余年，持有高级灸疗师证书、经络调理师证书、灸疗师师资证书等相关职业技能资质等。作为中医养生调理专家，深耕中国传统中医行业，创办了“茹德堂”艾灸养生品牌，是世界中医药学会联合会艾灸推广委员会理事，2015年作为中方特派讲演代表在世界中医药学会联合会主办的亚洲艾灸高峰论坛（日本大阪）作中医艾灸养生课题讲演汇报。2023年被聘任为芜湖市产业教授。`
+  },
+  {
+    name: `肖业宇`,
+    nameImg: `newHome/teacher/nameimg/肖业宇.png`,
+    imgUrl: `newHome/teacher/肖业宇.jpg`,
+    desc: `农工党员，王红梅师徒传承会第二代传承人，王红梅祖传按摩技能非遗传承人，世界中医药学会联合会按摩推广委员会理事。毕业于安徽省中医药高专针推科，从小跟随母亲学习王红梅祖传按摩手法，持有高级按摩师资格证、康复保健调理师高级证书等相关职业技能资质等。数十年来将王红梅祖传按摩从一家门店运营发展至集培训学校，中草药种植基地和几十家门店为一体的集团化公司，在技术和经营管理理念上都有自己独到的见解。2023年被聘任为芜湖市产业教授。`
+  },
+  {
+    name: `袁磊`,
+    nameImg: `newHome/teacher/nameimg/袁磊.png`,
+    imgUrl: `newHome/teacher/袁磊.jpg`,
+    desc: `执业中医师，现就职于北京同仁堂，毕业于北京中医药大学，数代家传，后拜师张启明教授，并跟诊皮肤科姚玉珍主任，针灸科刘赫主任学习，后结合自身多年临床经验和感悟，自创周天三心针法，与经方搭配，针药合用。
+临床擅长：各类经络瘀堵疼痛性疾病、各类胃病、失眠、焦虑抑郁、各类鼻炎、各类皮肤性问题、月经病、结节及肿瘤、小儿（多动症、抽动症、消化不良、成长缓慢、腺样体肥大、鼻炎）。`
+  },
+
+]);
 
 
 
+const modules = ref([
+  Autoplay
+])
+const teachershugeModules = ref([
+  EffectCoverflow, Pagination,
+])
+//Autoplay
 </script>
 <style lang="scss" scoped>
 @import '@/assets/style/variable';
@@ -349,40 +521,78 @@ const questionsList = ref([
     }
   }
   // 师资力量
-  .teachers-huge{
+  .teachers-huge {
     margin-top: 80px;
-    .teachershuge-swiperBox{
+    .teachershuge-swiperBox {
       margin-top: 100px;
       height: 650px;
-      border: 1px dashed #c25449;
+
+      .teachershuge-swiper-slide {
+        width: 1172px;
+        height: 553px;
+        background: url(./../../assets/newHome/user-text-bg.png) no-repeat center/contain;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px 40px;
+
+        .profile-img {
+          width: 300px;
+          height: 380px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+          }
+        }
+        .right-description {
+          flex: 1;
+          margin-left: 80px;
+          .desc-text {
+            margin-top: 70px;
+            font-size: 18px;
+            color: #524d49;
+            line-height: 1.5;
+            text-align: justify;
+          }
+        }
+      }
     }
   }
   // 办学宗旨
-  .school-objective{
+  .school-objective {
     margin-top: 80px;
-    .school-objective-swiperBox{
+    .school-objective-swiperBox {
       margin-top: 100px;
       height: 350px;
-      border: 1px dashed #c25449;
+      .schoolobjective-swiper-slide {
+        height: 350px;
+        img {
+          max-height: 100%;
+        }
+      }
     }
   }
-  // 学校荣誉  
-  .school-honor{
+  // 学校荣誉
+  .school-honor {
     margin-top: 80px;
-    .school-honor-swiperBox{
+    .school-honor-swiperBox {
       margin-top: 100px;
       height: 400px;
-      border: 1px dashed #c25449;
+      .schoolhonor-swiper-slide {
+        height: 400px;
+        img {
+          max-height: 100%;
+        }
+      }
     }
   }
 
-
   //页脚内容
-  .footer-info-wrap{
+  .footer-info-wrap {
     width: 1106px;
     margin: 140px auto 0;
   }
-
-
 }
 </style>

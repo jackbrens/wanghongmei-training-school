@@ -60,7 +60,19 @@
       <!-- 全能技法套餐 -->
       <div class="course-package">
         <div class="tancan-box-img">全能技法套餐</div>
-        <div class="subhead-text"></div>
+        <div class="tip-content">
+           <div class="text">经典传承套餐</div>
+           <div class="divide"></div>
+           <div class="text">艾灸养生套餐</div>
+        </div>
+        <div class="subhead-text">
+          <div class="item-img">
+            <img :src="requirePath('newHome/taocan-item.png')" />
+          </div>
+          <div class="right-box">
+            <img :src="requirePath('newHome/taocan-item-right.png')" />
+          </div>
+        </div>
       </div>
       <!-- 六大优势 -->
       <div class="margin-auto advantage-content">
@@ -83,7 +95,7 @@
         <div class="teachershuge-swiperBox">
           <swiper
             :loop="true"
-            :autoplay="{ delay: 3000, disableOnInteraction: false }"
+            :autoplay="{ delay: 5000, disableOnInteraction: false }"
             :effect="'coverflow'"
             :grabCursor="true"
             :centeredSlides="true"
@@ -170,7 +182,7 @@
         <div class="school-honor-swiperBox">
           <swiper
             :loop="true"
-            :autoplay="{ delay: 3000, disableOnInteraction: false }"
+            :autoplay="{ delay: 4000, disableOnInteraction: false }"
             :effect="'coverflow'"
             :grabCursor="true"
             :centeredSlides="true"
@@ -319,9 +331,9 @@ const modules = ref([
   Autoplay
 ])
 const teachershugeModules = ref([
-  EffectCoverflow, Pagination,
-])
-//Autoplay
+  EffectCoverflow, Pagination,Autoplay
+]);
+
 </script>
 <style lang="scss" scoped>
 @import '@/assets/style/variable';
@@ -358,7 +370,7 @@ const teachershugeModules = ref([
     padding-top: 110px;
     padding-bottom: 100px;
     background-color: #f5f2e8;
-
+    background: url(./../../assets/newHome/bg2.png) no-repeat center/cover;
     .title-tip-img {
       width: 495px;
       height: 257px;
@@ -458,6 +470,32 @@ const teachershugeModules = ref([
       font-size: 34px;
       color: #552712;
     }
+    .subhead-text {
+      display: flex;
+      align-items: center;
+      padding-left: 40px;
+      margin-top: -35px;
+    }
+    .tip-content{
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: -30px;
+      left: 406px;
+
+      .divide{
+        margin: 0 26px;
+        width: 1px;
+        height: 20px;
+        background: #937052;
+      }
+      .text{
+        color: #673c25;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+
   }
 
   //重点答疑

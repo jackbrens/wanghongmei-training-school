@@ -16,3 +16,11 @@ $breakpoint-xl: 1200px; // 大于993像素的设备
     @content;
   }
 }
+
+@mixin text-overflow($num: 1) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

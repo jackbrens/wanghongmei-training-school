@@ -14,10 +14,18 @@
         </div>
         <div class="text-box margin-auto">
           <div class="show-text-content">
-            <p>王红梅职业培训学校，成立于2018年，前身是拥有六十年历史渊源的“王红梅祖传按摩”诊所。学校从传统师徒的“传、帮、带”模式转变为现今的规模化、系统化和科学化教学，致力于“传承中医精髓，弘扬中华文化”。</p>
-            <p>【王红梅祖传按摩】技法荣获“非物质文化遗产”，【茹德堂古法艾灸】也荣膺国家中医药管理局全国特种灸法研究专业委员会“艾灸推广示基地”。自成立以来，学校已培养出2000余名中医推拿、艾灸和理疗等领域的高技能应用型人才。</p>
-            <p>学校环境优雅静谧，师资力量雄厚，所有教师都是中医技法的非物质文化遗产传承人，具有深厚的临床和教学经验。我们注重理论与实践的紧密结合，通过实际操作让学员掌握真正的技能，确保学习效果事半功倍。毕业学员不仅可以在集团旗下的养生门店找到就业机会，对于有创业意向的学员，学校还将提供扶持，帮助他们实现创业梦想。</p>
-            <p>王红梅职业培训学校欢迎广大中医养生爱好者和专业人士加入我们的大家庭，共同探索和发展中医养生的奥秘。</p>
+            <p>
+              王红梅职业培训学校，成立于2018年，前身是拥有六十年历史渊源的“王红梅祖传按摩”诊所。学校从传统师徒的“传、帮、带”模式转变为现今的规模化、系统化和科学化教学，致力于“传承中医精髓，弘扬中华文化”。
+            </p>
+            <p>
+              【王红梅祖传按摩】技法荣获“非物质文化遗产”，【茹德堂古法艾灸】也荣膺国家中医药管理局全国特种灸法研究专业委员会“艾灸推广示基地”。自成立以来，学校已培养出2000余名中医推拿、艾灸和理疗等领域的高技能应用型人才。
+            </p>
+            <p>
+              学校环境优雅静谧，师资力量雄厚，所有教师都是中医技法的非物质文化遗产传承人，具有深厚的临床和教学经验。我们注重理论与实践的紧密结合，通过实际操作让学员掌握真正的技能，确保学习效果事半功倍。毕业学员不仅可以在集团旗下的养生门店找到就业机会，对于有创业意向的学员，学校还将提供扶持，帮助他们实现创业梦想。
+            </p>
+            <p>
+              王红梅职业培训学校欢迎广大中医养生爱好者和专业人士加入我们的大家庭，共同探索和发展中医养生的奥秘。
+            </p>
           </div>
         </div>
       </div>
@@ -26,7 +34,9 @@
         <div class="title-tip-img">
           <img :src="requirePath('newHome/title-item-2.png')" alt="课程.介绍" />
         </div>
-        <div class="item-title-tip">开放各课程的免费试听机会，让学员可以亲身体验学习环境和教学质量</div>
+        <div class="item-title-tip">
+          开放各课程的免费试听机会，让学员可以亲身体验学习环境和教学质量
+        </div>
         <ul class="course-ul-list">
           <li>
             <div class="item-img">
@@ -61,9 +71,9 @@
       <div class="course-package">
         <div class="tancan-box-img">全能技法套餐</div>
         <div class="tip-content">
-           <div class="text">经典传承套餐</div>
-           <div class="divide"></div>
-           <div class="text">艾灸养生套餐</div>
+          <div class="text">经典传承套餐</div>
+          <div class="divide"></div>
+          <div class="text">艾灸养生套餐</div>
         </div>
         <div class="subhead-text">
           <div class="item-img">
@@ -150,16 +160,16 @@
             :centeredSlides="true"
             :slidesPerView="'3'"
             :coverflowEffect="{
-            rotate: 0,
-            stretch: 0,
-            depth: 300,
-            modifier: 1,
-            slideShadows: true
-          }"
+              rotate: 0,
+              stretch: 0,
+              depth: 300,
+              modifier: 1,
+              slideShadows: true
+            }"
             :initial-slide="0"
             :pagination="{
-            clickable: true
-          }"
+              clickable: true
+            }"
             :modules="modules"
             class="mySwiper"
           >
@@ -189,8 +199,8 @@
             :slidesPerView="'3'"
             :initial-slide="0"
             :pagination="{
-            clickable: true
-          }"
+              clickable: true
+            }"
             class="mySwiper"
             :modules="modules"
           >
@@ -212,7 +222,7 @@
         </div>
         <div class="item-title-tip">传承中医文化 福泽百姓大众</div>
         <ul class="questions-list">
-          <li v-for="(item,index) in questionsList" :key="index">
+          <li v-for="(item, index) in questionsList" :key="index">
             <p class="question-item red">Q：{{ item.q }}</p>
             <p class="answer-item">A：{{ item.a }}</p>
           </li>
@@ -227,9 +237,9 @@
   </div>
 </template>
 <script setup>
-import newFooterInfoComp from "@/components/bottomFooter/newFooterInfo.vue";
+import newFooterInfoComp from '@/components/bottomFooter/newFooterInfo.vue'
 import { ref, onMounted } from 'vue'
-import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Swiper, SwiperSlide } from 'swiper/vue'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -242,10 +252,22 @@ import { requirePath } from '@/utils/index.js'
 import { useRouter } from 'vue-router'
 
 const questionsList = ref([
-  { q: `学习推拿按摩要多长时间?`, a: `选择的课程不同，学时也是不一样的。看自身的学习接受能力，大概1-3个月左右，学校采用循环授课模式，随到随学，不限课时，学会再离校。并且终身免复学复训。` },
-  { q: `零基础可以学推拿和艾灸吗?`, a: `可以的，咱们学校不限年龄，不限基础，随到随学。新手0基础入学，名师亲身指导实操一对一教学，培训内容全面，讲解详细而且不限课时。等你完全掌握再离校。` },
-  { q: `艾灸好学吗?多长时间学会?`, a: `艾灸是好学的。咱们老师都是采用的小班面授，根据学员的实际情况来教学。从理论到实操手把手教的。而且理论和实操穿插进行，如果您感觉知识点记录的不牢固，是可以终身免费复学的。具体时长看自身的学习接受能力大概1-3个月左右。` },
-  { q: `学员毕业后安排就业吗?待遇如何?`, a: `现在中医养生是个热门行业，回报更多更快:大健康产业越来被越多的人看到，机遇稍纵即逝，可遇不可求，当机遇到来时，要果断地识别并抓住机遇。越早学习就业越早，机会越多。优秀毕业学员可到集团旗下养生门店工作，学校也就近推荐就业并扶持开店的。` },
+  {
+    q: `学习推拿按摩要多长时间?`,
+    a: `选择的课程不同，学时也是不一样的。看自身的学习接受能力，大概1-3个月左右，学校采用循环授课模式，随到随学，不限课时，学会再离校。并且终身免复学复训。`
+  },
+  {
+    q: `零基础可以学推拿和艾灸吗?`,
+    a: `可以的，咱们学校不限年龄，不限基础，随到随学。新手0基础入学，名师亲身指导实操一对一教学，培训内容全面，讲解详细而且不限课时。等你完全掌握再离校。`
+  },
+  {
+    q: `艾灸好学吗?多长时间学会?`,
+    a: `艾灸是好学的。咱们老师都是采用的小班面授，根据学员的实际情况来教学。从理论到实操手把手教的。而且理论和实操穿插进行，如果您感觉知识点记录的不牢固，是可以终身免费复学的。具体时长看自身的学习接受能力大概1-3个月左右。`
+  },
+  {
+    q: `学员毕业后安排就业吗?待遇如何?`,
+    a: `现在中医养生是个热门行业，回报更多更快:大健康产业越来被越多的人看到，机遇稍纵即逝，可遇不可求，当机遇到来时，要果断地识别并抓住机遇。越早学习就业越早，机会越多。优秀毕业学员可到集团旗下养生门店工作，学校也就近推荐就业并扶持开店的。`
+  }
 ])
 
 //办学宗旨 轮播图
@@ -267,9 +289,8 @@ const schoolHonorImgArr = ref([
   `qualifications/photo6.jpg`,
   `qualifications/photo7.jpg`,
   `qualifications/photo8.jpg`,
-  `qualifications/photo9.jpg`,
-]);
-
+  `qualifications/photo9.jpg`
+])
 
 // 老师 轮播图
 const teacherDataArr = ref([
@@ -321,19 +342,11 @@ const teacherDataArr = ref([
     imgUrl: `newHome/teacher/袁磊.jpg`,
     desc: `执业中医师，现就职于北京同仁堂，毕业于北京中医药大学，数代家传，后拜师张启明教授，并跟诊皮肤科姚玉珍主任，针灸科刘赫主任学习，后结合自身多年临床经验和感悟，自创周天三心针法，与经方搭配，针药合用。
 临床擅长：各类经络瘀堵疼痛性疾病、各类胃病、失眠、焦虑抑郁、各类鼻炎、各类皮肤性问题、月经病、结节及肿瘤、小儿（多动症、抽动症、消化不良、成长缓慢、腺样体肥大、鼻炎）。`
-  },
-
-]);
-
-
-
-const modules = ref([
-  Autoplay
+  }
 ])
-const teachershugeModules = ref([
-  EffectCoverflow, Pagination,Autoplay
-]);
 
+const modules = ref([Autoplay])
+const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
 </script>
 <style lang="scss" scoped>
 @import '@/assets/style/variable';
@@ -346,7 +359,7 @@ const teachershugeModules = ref([
   }
 
   .banner-content {
-    width: 1920px;
+    width: 100%;
     height: 979px;
     background: url(./../../assets/newHome/banner.png) no-repeat center/cover;
     position: relative;
@@ -393,9 +406,10 @@ const teachershugeModules = ref([
   .school-overview {
     background-color: #f5f2e8;
     .text-box {
-      width: 1172px;
+      width: 80%;
       height: 553px;
-      background: url(./../../assets/newHome/text-box.png) no-repeat center/cover;
+      background: url(./../../assets/newHome/text-box.png) no-repeat;
+      background-size: 100% 100%;
       .show-text-content {
         width: 100%;
         height: 100%;
@@ -476,26 +490,25 @@ const teachershugeModules = ref([
       padding-left: 40px;
       margin-top: -35px;
     }
-    .tip-content{
+    .tip-content {
       display: flex;
       align-items: center;
       position: absolute;
       top: -30px;
       left: 406px;
 
-      .divide{
+      .divide {
         margin: 0 26px;
         width: 1px;
         height: 20px;
         background: #937052;
       }
-      .text{
+      .text {
         color: #673c25;
         font-size: 18px;
         font-weight: bold;
       }
     }
-
   }
 
   //重点答疑
@@ -539,7 +552,7 @@ const teachershugeModules = ref([
   // 六大优势
   .advantage-content {
     margin-top: 100px;
-    width: 1712px;
+    width: 90%;
 
     .item-title-tip {
       text-align: center;
@@ -566,7 +579,6 @@ const teachershugeModules = ref([
       height: 650px;
 
       .teachershuge-swiper-slide {
-        width: 1172px;
         height: 553px;
         background: url(./../../assets/newHome/user-text-bg.png) no-repeat center/contain;
         display: flex;
@@ -575,8 +587,8 @@ const teachershugeModules = ref([
         padding: 50px 40px;
 
         .profile-img {
-          width: 300px;
-          height: 380px;
+          width: 38%;
+          height: 66%;
           img {
             width: 100%;
             height: 100%;
@@ -587,7 +599,16 @@ const teachershugeModules = ref([
         .right-description {
           flex: 1;
           margin-left: 80px;
+          .name-img {
+            width: 40%;
+            height: 60%;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
           .desc-text {
+            @include text-overflow(8);
             margin-top: 70px;
             font-size: 18px;
             color: #524d49;

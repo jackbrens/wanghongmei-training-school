@@ -77,10 +77,10 @@
         </div>
         <div class="subhead-text">
           <div class="item-img">
-            <img :src="requirePath('newHome/taocan-item.png')" />
+            <img :src="requirePath('newHome/taocan-item.png')" alt="" />
           </div>
           <div class="right-box">
-            <img :src="requirePath('newHome/taocan-item-right.png')" />
+            <img :src="requirePath('newHome/taocan-item-right.png')" alt="" />
           </div>
         </div>
       </div>
@@ -178,7 +178,7 @@
               v-for="item in schoolObjectiveImgArr"
               :key="item"
             >
-              <img :src="requirePath(item)" />
+              <img :src="requirePath(item)" alt="" />
             </swiper-slide>
           </swiper>
         </div>
@@ -209,7 +209,7 @@
               v-for="item in schoolHonorImgArr"
               :key="item"
             >
-              <img :src="requirePath(item)" />
+              <img :src="requirePath(item)" alt="" />
             </swiper-slide>
           </swiper>
         </div>
@@ -238,7 +238,7 @@
 </template>
 <script setup>
 import newFooterInfoComp from '@/components/bottomFooter/newFooterInfo.vue'
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 import 'swiper/css'
@@ -247,9 +247,8 @@ import 'swiper/css/pagination'
 import 'swiper/css/autoplay'
 import 'swiper/css/effect-fade'
 // import required modules
-import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules'
+import { Pagination, Autoplay, EffectCoverflow } from 'swiper/modules'
 import { requirePath } from '@/utils/index.js'
-import { useRouter } from 'vue-router'
 
 const questionsList = ref([
   {
@@ -587,28 +586,26 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
         padding: 50px 40px;
 
         .profile-img {
-          width: 38%;
-          height: 66%;
+          width: 260px;
+          height: 350px;
           img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
             border-radius: 20px;
           }
         }
         .right-description {
           flex: 1;
-          margin-left: 80px;
+          margin-left: 60px;
           .name-img {
-            width: 40%;
-            height: 60%;
+            width: 110px;
+            height: 50px;
             img {
               width: 100%;
               height: 100%;
             }
           }
           .desc-text {
-            @include text-overflow(8);
             margin-top: 70px;
             font-size: 18px;
             color: #524d49;

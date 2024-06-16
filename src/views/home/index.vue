@@ -382,7 +382,7 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
     padding-top: 110px;
     padding-bottom: 100px;
     background-color: #f5f2e8;
-    background: url(./../../assets/newHome/bg2.png) no-repeat center/cover;
+    background: url(./../../assets/newHome/new-bg.png) no-repeat center/cover;
     .title-tip-img {
       width: 495px;
       height: 257px;

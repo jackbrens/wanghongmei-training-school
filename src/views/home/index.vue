@@ -227,6 +227,21 @@
             <p class="answer-item">A：{{ item.a }}</p>
           </li>
         </ul>
+        <div class="answer-questions-swiper">
+          <swiper
+            :pagination="{
+              clickable: true
+            }"
+            :modules="teachershugeModules"
+          >
+            <swiper-slide v-for="(item, i) in questionsList" :key="i">
+              <div class="swiper-item">
+                <p class="question-item red">Q：{{ item.q }}</p>
+                <p class="answer-item">A：{{ item.a }}</p>
+              </div>
+            </swiper-slide>
+          </swiper>
+        </div>
       </div>
 
       <!-- 页脚内容区 -->
@@ -351,7 +366,7 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
 @import '@/assets/style/variable';
 .index-page-box {
   .w-1200 {
-    width: 1200px;
+    max-width: 1200px;
   }
   .margin-auto {
     margin: 0 auto;
@@ -382,7 +397,7 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
     padding-top: 110px;
     padding-bottom: 100px;
     background-color: #f5f2e8;
-    background: url(./../../assets/newHome/new-bg.png) no-repeat center/cover;
+    background: url('@/assets/newHome/new-bg.png') no-repeat center/cover;
     .title-tip-img {
       width: 495px;
       height: 257px;
@@ -467,7 +482,7 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
   }
   //全能技法套餐
   .course-package {
-    width: 1153px;
+    max-width: 1153px;
     height: 384px;
     margin: 140px auto 0;
     background: url(./../../assets/newHome/outline-box.png) no-repeat center/cover;
@@ -512,16 +527,29 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
 
   //重点答疑
   .answer-questions {
-    width: 1106px;
+    max-width: 1106px;
     margin: 140px auto 0;
     .item-title-tip {
       text-align: center;
       font-size: 20px;
       color: #45413c;
     }
+    .red {
+      color: #c25449;
+    }
+    .question-item {
+      font-weight: bold;
+    }
+    .answer-item {
+      margin-top: 28px;
+      color: #494643;
+    }
 
     .questions-list {
       margin-top: 55px;
+      @include media($breakpoint-md) {
+        display: none;
+      }
       li {
         width: 100%;
         height: 220px;
@@ -532,19 +560,22 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
         &:last-child {
           margin-bottom: 0;
         }
-        .red {
-          color: #c25449;
-        }
-        .question-item {
-          font-weight: bold;
-        }
-        .answer-item {
-          margin-top: 28px;
-          color: #494643;
-        }
         p {
           font-size: 22px;
         }
+      }
+    }
+    .answer-questions-swiper {
+      display: none;
+      margin: 30px 30px 0;
+      @include media($breakpoint-md) {
+        display: block;
+      }
+      .swiper-item {
+        height: 220px;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 40px;
       }
     }
   }

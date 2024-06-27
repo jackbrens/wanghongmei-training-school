@@ -69,11 +69,22 @@
       </div>
       <!-- 全能技法套餐 -->
       <div class="course-package">
-        <div class="tancan-box-img">全能技法套餐</div>
-        <div class="tip-content">
-          <div class="text">经典传承套餐</div>
-          <div class="divide"></div>
-          <div class="text">艾灸养生套餐</div>
+        <!--        <div class="tancan-box-img">全能技法套餐</div>-->
+        <!--        <div class="tip-content">-->
+        <!--          <div class="text" @click="handleChangeSetMeal(2)">经典传承套餐</div>-->
+        <!--          <div class="divide"></div>-->
+        <!--          <div class="text" @click="handleChangeSetMeal(3)">艾灸养生套餐</div>-->
+        <!--        </div>-->
+        <div class="tabs text" style="display: flex; justify-content: space-around">
+          <div
+            class="tab-item"
+            :class="{ 'tancan-box-img': currentTab === index }"
+            v-for="(item, index) in setMealArr"
+            :key="index"
+            @click="handleChangeSetMeal(index)"
+          >
+            {{ item.title }}
+          </div>
         </div>
         <div class="subhead-text">
           <div class="item-img">
@@ -139,6 +150,22 @@
                 <div class="desc-text">{{ item.desc }}</div>
               </div>
               <!-- <img :src="requirePath('newHome/user-text-bg.png')"  /> -->
+            </swiper-slide>
+          </swiper>
+        </div>
+
+        <!--移动端轮播图-->
+        <div class="teachershuge-swiperBox-mobile">
+          <swiper
+            :pagination="{
+              clickable: true
+            }"
+            :modules="teachershugeModules"
+          >
+            <swiper-slide v-for="(item, i) in teacherDataArr" :key="i">
+              <div class="swiper-item">
+                {{ item.name }}
+              </div>
             </swiper-slide>
           </swiper>
         </div>
@@ -265,6 +292,9 @@ import 'swiper/css/effect-fade'
 import { Pagination, Autoplay, EffectCoverflow } from 'swiper/modules'
 import { requirePath } from '@/utils/index.js'
 
+const modules = ref([Autoplay])
+const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
+
 const questionsList = ref([
   {
     q: `学习推拿按摩要多长时间?`,
@@ -359,8 +389,36 @@ const teacherDataArr = ref([
   }
 ])
 
-const modules = ref([Autoplay])
-const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
+const setMealArr = ref([
+  {
+    title: '全能技法套餐',
+    subTitleOne: '全能技艺掌握',
+    subTitleTwo: '中医养生大全',
+    subTitleThree: '技艺融合实战',
+    imgPath: 'newHome/setMeal/quan.png'
+  },
+  {
+    title: '经典传承套餐',
+    subTitleOne: '推拿理疗经典',
+    subTitleTwo: '祖传技艺精华',
+    subTitleThree: '手法技能提升',
+    imgPath: 'newHome/setMeal/jing.png'
+  },
+  {
+    title: '艾灸养生套餐',
+    subTitleOne: '艾灸理疗养生',
+    subTitleTwo: '温通疗法精讲',
+    subTitleThree: '传统智慧实践',
+    imgPath: 'newHome/setMeal/aijiu.png'
+  }
+])
+
+const currentTab = ref(0)
+
+// 切换课程套餐
+const handleChangeSetMeal = (index) => {
+  currentTab.value = index
+}
 </script>
 <style lang="scss" scoped>
 @import '@/assets/style/variable';
@@ -375,8 +433,12 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
   .banner-content {
     width: 100%;
     height: 979px;
-    background: url(./../../assets/newHome/banner.png) no-repeat center/cover;
+    background: url(./../../assets/newHome/banner.png) no-repeat;
+    background-size: 100% 100%;
     position: relative;
+    @include media($breakpoint-md) {
+      height: 250px;
+    }
     .banner-bottom-enrollStudent {
       width: 100%;
       height: 171px;
@@ -384,10 +446,14 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
       left: 0;
       right: 0;
       bottom: -65px;
+      @include media($breakpoint-md) {
+        height: 50px;
+        bottom: -20px;
+      }
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        //object-fit: cover;
       }
     }
   }
@@ -398,9 +464,12 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
     padding-bottom: 100px;
     background-color: #f5f2e8;
     background: url('@/assets/newHome/new-bg.png') no-repeat center/cover;
+    @include media($breakpoint-md) {
+      padding-top: 40px;
+    }
     .title-tip-img {
-      width: 495px;
-      height: 257px;
+      width: 300px;
+      height: 200px;
       margin: 0 auto;
       img {
         width: 100%;
@@ -435,6 +504,9 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
           &:last-child {
             margin-bottom: 0;
           }
+          @include media($breakpoint-md) {
+            font-size: 12px;
+          }
         }
       }
     }
@@ -442,10 +514,17 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
   //课程介绍
   .course-description {
     margin-top: 90px;
+    @include media($breakpoint-md) {
+      margin-top: 40px;
+    }
     .item-title-tip {
       text-align: center;
       font-size: 20px;
       color: #45413c;
+      @include media($breakpoint-md) {
+        font-size: 12px;
+        padding: 0 20px;
+      }
     }
     .course-ul-list {
       margin-top: 60px;
@@ -460,6 +539,10 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
       .item-img {
         width: 237px;
         height: 258px;
+        @include media($breakpoint-md) {
+          width: 100%;
+          height: 100px;
+        }
         img {
           width: 100%;
           height: 100%;
@@ -472,6 +555,9 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
         h4,
         p {
           font-size: 18px;
+          @include media($breakpoint-md) {
+            font-size: 12px;
+          }
         }
         p {
           margin-top: 10px;
@@ -487,6 +573,9 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
     margin: 140px auto 0;
     background: url(./../../assets/newHome/outline-box.png) no-repeat center/cover;
     position: relative;
+    @include media($breakpoint-md) {
+      display: none;
+    }
 
     .tancan-box-img {
       width: 361px;
@@ -497,6 +586,11 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
       line-height: 96px;
       font-size: 34px;
       color: #552712;
+    }
+    .text {
+      color: #673c25;
+      font-size: 18px;
+      font-weight: bold;
     }
     .subhead-text {
       display: flex;
@@ -516,11 +610,6 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
         width: 1px;
         height: 20px;
         background: #937052;
-      }
-      .text {
-        color: #673c25;
-        font-size: 18px;
-        font-weight: bold;
       }
     }
   }
@@ -594,6 +683,9 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
       margin-top: 60px;
       width: 100%;
       height: 236px;
+      @include media($breakpoint-md) {
+        display: none;
+      }
       img {
         width: 100%;
         height: 100%;
@@ -607,7 +699,9 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
     .teachershuge-swiperBox {
       margin-top: 100px;
       height: 650px;
-
+      @include media($breakpoint-md) {
+        display: none;
+      }
       .teachershuge-swiper-slide {
         height: 553px;
         background: url(./../../assets/newHome/user-text-bg.png) no-repeat center/contain;
@@ -646,6 +740,14 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
         }
       }
     }
+    .teachershuge-swiperBox-mobile {
+      margin: 0 30px;
+      .swiper-item {
+        background: url(./../../assets/newHome/user-text-bg.png) no-repeat;
+        background-size: 100% 100%;
+        height: 350px;
+      }
+    }
   }
   // 办学宗旨
   .school-objective {
@@ -653,10 +755,16 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
     .school-objective-swiperBox {
       margin-top: 100px;
       height: 350px;
+      @include media($breakpoint-md) {
+        height: 150px;
+      }
       .schoolobjective-swiper-slide {
-        height: 350px;
         img {
           max-height: 100%;
+          @include media($breakpoint-md) {
+            width: 110px;
+            height: 90px;
+          }
         }
       }
     }
@@ -667,10 +775,16 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
     .school-honor-swiperBox {
       margin-top: 100px;
       height: 400px;
+      @include media($breakpoint-md) {
+        height: 150px;
+      }
       .schoolhonor-swiper-slide {
-        height: 400px;
         img {
           max-height: 100%;
+          @include media($breakpoint-md) {
+            width: 110px;
+            height: 90px;
+          }
         }
       }
     }
@@ -678,7 +792,7 @@ const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
 
   //页脚内容
   .footer-info-wrap {
-    width: 1106px;
+    max-width: 1106px;
     margin: 140px auto 0;
   }
 }

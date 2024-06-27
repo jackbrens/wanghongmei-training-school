@@ -18,26 +18,32 @@
 import { requirePath } from '@/utils/index.js'
 </script>
 <style lang="scss" scoped>
+@import '@/assets/style/variable';
 .footerInfo-components {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include media($breakpoint-md) {
+    flex-direction: column;
+  }
 
-  .left-contact{
-    .contact-tip{
+  .left-contact {
+    @include media($breakpoint-md) {
+      text-align: center;
+    }
+    .contact-tip {
       font-size: 24px;
       font-weight: bold;
       color: #a4291c;
     }
-    .contact-list{
+    .contact-list {
       margin-top: 30px;
-      li{
+      li {
         line-height: 1.5;
         font-size: 18px;
-        color:  #2c2824;
+        color: #2c2824;
       }
     }
-   
   }
 
   .qr-code {

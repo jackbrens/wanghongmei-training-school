@@ -95,6 +95,35 @@
             </div>
           </div>
         </div>
+        <div class="course-package-swiper custom-swiper-box-mobile">
+          <swiper
+            :pagination="{
+              clickable: true
+            }"
+            :modules="teachershugeModules"
+          >
+            <swiper-slide class="swiper-slide" v-for="(item, i) in setMealArrComp" :key="i">
+              <div class="course-package-swiper-slide">
+                <div class="text-img">
+                  {{ item.title }}
+                </div>
+                <div class="content-box">
+                  <div class="item-img">
+                    <img :src="requirePath(setMealArr[i].imgPath)" alt="" />
+                  </div>
+                  <div class="right-box">
+                    <div class="content">
+                      <p>{{ setMealArrComp[i].subTitleOne }}</p>
+                      <p>{{ setMealArrComp[i].subTitleTwo }}</p>
+                      <p>{{ setMealArrComp[i].subTitleThree }}</p>
+                    </div>
+                    <img :src="requirePath('newHome/setMeal/button.png')" alt="" />
+                  </div>
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper>
+        </div>
       </div>
       <!-- 六大优势 -->
       <div class="margin-auto advantage-content animate__fadeInUp onMounted-wow">
@@ -103,7 +132,8 @@
         </div>
         <div class="item-title-tip">技能培训&nbsp;·&nbsp;选择正规&nbsp;·&nbsp;才有保障</div>
         <div class="advantage-item-img">
-          <img :src="requirePath('newHome/youshi.png')" alt="六大.优势" />
+          <img class="img-pc" :src="requirePath('newHome/youshi.png')" alt="六大.优势" />
+          <img class="img-mobile" :src="requirePath('newHome/youshi-mobile.png')" alt="六大.优势" />
         </div>
       </div>
 
@@ -162,7 +192,13 @@
           >
             <swiper-slide v-for="(item, i) in teacherDataArr" :key="i">
               <div class="swiper-item">
-                {{ item.name }}
+                <div class="head-box">
+                  <img class="teacher-picture" :src="requirePath(item.imgUrl)" :alt="item.name" />
+                  <img class="teacher-name" :src="requirePath(item.nameImg)" :alt="item.name" />
+                </div>
+                <div class="desc-text">
+                  {{ item.desc }}
+                </div>
               </div>
             </swiper-slide>
           </swiper>
@@ -207,6 +243,24 @@
             </swiper-slide>
           </swiper>
         </div>
+        <div class="school-objective-swiperBox-mobile">
+          <swiper
+            :loop="true"
+            :pagination="{
+              clickable: true
+            }"
+            :modules="modules"
+            class="mySwiper"
+          >
+            <swiper-slide
+              class="schoolobjective-swiper-slide"
+              v-for="item in schoolObjectiveImgArr"
+              :key="item"
+            >
+              <img :src="requirePath(item)" alt="" />
+            </swiper-slide>
+          </swiper>
+        </div>
       </div>
       <!-- 学校荣誉 -->
       <div class="school-honor animate__fadeInUp onMounted-wow">
@@ -223,6 +277,24 @@
             :centeredSlides="true"
             :slidesPerView="'3'"
             :initial-slide="0"
+            :pagination="{
+              clickable: true
+            }"
+            class="mySwiper"
+            :modules="modules"
+          >
+            <swiper-slide
+              class="schoolhonor-swiper-slide"
+              v-for="item in schoolHonorImgArr"
+              :key="item"
+            >
+              <img :src="requirePath(item)" alt="" />
+            </swiper-slide>
+          </swiper>
+        </div>
+        <div class="school-honor-swiperBox-mobile">
+          <swiper
+            :loop="true"
             :pagination="{
               clickable: true
             }"
@@ -487,6 +559,24 @@ const handleChangeSetMeal = (index) => {
     background: #c46a41;
   }
 }
+:deep(.custom-swiper-box-mobile) {
+  .swiper-pagination-bullet {
+    border-radius: 20px;
+    width: 10px;
+    height: 8px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #666666;
+    opacity: 1;
+    background: #cbb48c;
+  }
+  .swiper-pagination-bullet-active {
+    width: 20px;
+    color: #fff;
+    background: #c46a41;
+  }
+}
 
 .index-page-box {
   .w-1200 {
@@ -552,14 +642,20 @@ const handleChangeSetMeal = (index) => {
 
   .school-overview {
     .text-box {
-      width: 80%;
-      height: 553px;
       background: url(./../../assets/newHome/text-box.png) no-repeat;
       background-size: 100% 100%;
+      @include media($breakpoint-md) {
+        background: url('@/assets/newHome/text-box-mobile.png') no-repeat;
+        background-size: 100% 100%;
+        margin: 0 20px;
+      }
       .show-text-content {
         width: 100%;
         height: 100%;
         padding: 60px 44px;
+        @include media($breakpoint-md) {
+          padding: 26px 20px;
+        }
         p {
           font-size: 22px;
           color: #58544f;
@@ -568,7 +664,7 @@ const handleChangeSetMeal = (index) => {
             margin-bottom: 0;
           }
           @include media($breakpoint-md) {
-            font-size: 12px;
+            font-size: 14px;
           }
         }
       }
@@ -579,6 +675,9 @@ const handleChangeSetMeal = (index) => {
     background: url('@/assets/newHome/course-bg.png') no-repeat;
     background-size: 100% 100%;
     overflow: hidden;
+    @include media($breakpoint-md) {
+      background: url('@/assets/newHome/course-bg-mobile.png') no-repeat;
+    }
     .course-description {
       margin-top: 90px;
       @include media($breakpoint-md) {
@@ -703,6 +802,68 @@ const handleChangeSetMeal = (index) => {
         background: #937052;
       }
     }
+    .course-package-swiper {
+      display: none;
+      margin-top: 30px;
+      position: relative;
+      @include media($breakpoint-md) {
+        display: block;
+      }
+      .swiper-slide {
+        padding: 28px;
+      }
+      .course-package-swiper-slide {
+        background: url('@/assets/newHome/text-box-mobile.png') no-repeat;
+        background-size: 100% 100%;
+        .text-img {
+          width: 250px;
+          background: url(./../../assets/newHome/tancan-box.png) no-repeat;
+          background-size: 100% 100%;
+          display: flex;
+          justify-content: center;
+          line-height: 60px;
+          font-size: 24px;
+          color: #552712;
+          position: absolute;
+          left: 50%;
+          top: 0;
+          transform: translateX(-50%);
+        }
+        .content-box {
+          padding: 50px 20px 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          .item-img {
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          .right-box {
+            margin-top: 20px;
+            width: 275px;
+            height: 187px;
+            background: url('@/assets/newHome/setMeal/taocan-bg.png') no-repeat;
+            background-size: 100% 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            .content {
+              font-size: 16px;
+              margin: 20px 0;
+            }
+            img {
+              width: 200px;
+              height: 60px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
   }
 
   //重点答疑
@@ -767,7 +928,9 @@ const handleChangeSetMeal = (index) => {
   .advantage-content {
     margin-top: -150px;
     width: 90%;
-
+    @include media($breakpoint-md) {
+      margin-top: 0;
+    }
     .item-title-tip {
       text-align: center;
       font-size: 20px;
@@ -777,9 +940,18 @@ const handleChangeSetMeal = (index) => {
     .advantage-item-img {
       margin-top: 60px;
       width: 100%;
-      height: 236px;
-      @include media($breakpoint-md) {
+      //height: 236px;
+      .img-pc {
+        display: block;
+        @include media($breakpoint-md) {
+          display: none;
+        }
+      }
+      .img-mobile {
         display: none;
+        @include media($breakpoint-md) {
+          display: block;
+        }
       }
       img {
         width: 100%;
@@ -845,9 +1017,28 @@ const handleChangeSetMeal = (index) => {
         display: block;
       }
       .swiper-item {
-        background: url(./../../assets/newHome/user-text-bg.png) no-repeat;
+        background: url('@/assets/newHome/text-box-mobile.png') no-repeat;
         background-size: 100% 100%;
-        height: 350px;
+        //height: 500px;
+        padding: 30px;
+        .head-box {
+          display: flex;
+          align-items: flex-end;
+          .teacher-picture {
+            width: 136px;
+            height: 172px;
+            border-radius: 10px;
+            margin-right: 20px;
+          }
+          .teacher-name {
+            width: 90px;
+            height: 43px;
+          }
+        }
+        .desc-text {
+          margin-top: 20px;
+          line-height: 1.5;
+        }
       }
     }
   }
@@ -858,14 +1049,26 @@ const handleChangeSetMeal = (index) => {
       margin-top: 100px;
       height: 350px;
       @include media($breakpoint-md) {
-        height: 150px;
+        display: none;
       }
       .schoolobjective-swiper-slide {
         img {
           max-height: 100%;
-          @include media($breakpoint-md) {
-            width: 110px;
-            height: 90px;
+        }
+      }
+    }
+    .school-objective-swiperBox-mobile {
+      display: none;
+      @include media($breakpoint-md) {
+        display: block;
+        margin: 0 30px;
+        .schoolobjective-swiper-slide {
+          img {
+            max-height: 100%;
+            max-width: 600px;
+            @include media($breakpoint-md) {
+              width: 100%;
+            }
           }
         }
       }
@@ -877,20 +1080,36 @@ const handleChangeSetMeal = (index) => {
     margin-top: 80px;
     background: url('@/assets/newHome/course-bg.png') no-repeat;
     background-size: 100% 100%;
+    @include media($breakpoint-md) {
+      background: url('@/assets/newHome/course-bg-mobile.png') no-repeat;
+      background-size: 100% 100%;
+    }
     .school-honor-swiperBox {
       margin-top: 100px;
       margin-bottom: 300px;
       height: 400px;
       @include media($breakpoint-md) {
-        height: 150px;
+        display: none;
       }
       .schoolhonor-swiper-slide {
         img {
           max-height: 100%;
           max-width: 600px;
-          @include media($breakpoint-md) {
-            width: 110px;
-            height: 90px;
+        }
+      }
+    }
+    .school-honor-swiperBox-mobile {
+      display: none;
+      @include media($breakpoint-md) {
+        display: block;
+        margin: 0 30px;
+        .schoolhonor-swiper-slide {
+          img {
+            max-height: 100%;
+            max-width: 600px;
+            @include media($breakpoint-md) {
+              width: 100%;
+            }
           }
         }
       }

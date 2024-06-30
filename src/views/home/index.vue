@@ -112,7 +112,7 @@
         </div>
         <div class="item-title-tip">师资雄厚&nbsp;·&nbsp;非遗传承</div>
         <!-- 轮播图区域-->
-        <div class="teachershuge-swiperBox">
+        <div class="teachershuge-swiperBox custom-swiper-box">
           <swiper
             :loop="true"
             :autoplay="{ delay: 5000, disableOnInteraction: false }"
@@ -134,21 +134,18 @@
             :modules="teachershugeModules"
             class="teachershuge-Swiper"
           >
-            <swiper-slide
-              class="teachershuge-swiper-slide"
-              v-for="item in teacherDataArr"
-              :key="item.name"
-            >
-              <div class="profile-img">
-                <img :src="requirePath(item.imgUrl)" :alt="item.name" />
-              </div>
-              <div class="right-description">
-                <div class="name-img">
-                  <img :src="requirePath(item.nameImg)" :alt="item.name" />
+            <swiper-slide v-for="item in teacherDataArr" :key="item.name">
+              <div class="teachershuge-swiper-slide">
+                <div class="profile-img">
+                  <img :src="requirePath(item.imgUrl)" :alt="item.name" />
                 </div>
-                <div class="desc-text">{{ item.desc }}</div>
+                <div class="right-description">
+                  <div class="name-img">
+                    <img :src="requirePath(item.nameImg)" :alt="item.name" />
+                  </div>
+                  <div class="desc-text">{{ item.desc }}</div>
+                </div>
               </div>
-              <!-- <img :src="requirePath('newHome/user-text-bg.png')"  /> -->
             </swiper-slide>
           </swiper>
         </div>
@@ -180,7 +177,7 @@
         <div class="school-objective-swiperBox">
           <swiper
             :loop="true"
-            :autoplay="{ delay: 3000, disableOnInteraction: false }"
+            :autoplay="{ delay: 2000, disableOnInteraction: false }"
             :effect="'coverflow'"
             :grabCursor="true"
             :centeredSlides="true"
@@ -218,7 +215,7 @@
         <div class="school-honor-swiperBox">
           <swiper
             :loop="true"
-            :autoplay="{ delay: 4000, disableOnInteraction: false }"
+            :autoplay="{ delay: 3000, disableOnInteraction: false }"
             :effect="'coverflow'"
             :grabCursor="true"
             :centeredSlides="true"
@@ -451,6 +448,26 @@ const handleChangeSetMeal = (index) => {
 </script>
 <style lang="scss" scoped>
 @import '@/assets/style/variable';
+
+:deep(.custom-swiper-box) {
+  .swiper-pagination-bullet {
+    border-radius: 20px;
+    width: 17px;
+    height: 13px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #666666;
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .swiper-pagination-bullet-active {
+    width: 40px;
+    color: #fff;
+    background: #c46a41;
+  }
+}
+
 .index-page-box {
   .w-1200 {
     max-width: 1200px;
@@ -756,6 +773,7 @@ const handleChangeSetMeal = (index) => {
       }
       .teachershuge-swiper-slide {
         height: 553px;
+        width: 887px;
         background: url(./../../assets/newHome/user-text-bg.png) no-repeat center/contain;
         display: flex;
         justify-content: space-between;
@@ -793,7 +811,11 @@ const handleChangeSetMeal = (index) => {
       }
     }
     .teachershuge-swiperBox-mobile {
+      display: none;
       margin: 0 30px;
+      @include media($breakpoint-md) {
+        display: block;
+      }
       .swiper-item {
         background: url(./../../assets/newHome/user-text-bg.png) no-repeat;
         background-size: 100% 100%;
@@ -833,6 +855,7 @@ const handleChangeSetMeal = (index) => {
       .schoolhonor-swiper-slide {
         img {
           max-height: 100%;
+          max-width: 600px;
           @include media($breakpoint-md) {
             width: 110px;
             height: 90px;

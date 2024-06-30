@@ -8,7 +8,7 @@
 
     <div class="recruit-student-content">
       <!-- 学校简介 -->
-      <div class="school-overview w-1200 margin-auto">
+      <div class="school-overview w-1200 margin-auto animate__fadeInUp onMounted-wow">
         <div class="title-tip-img">
           <img :src="requirePath('newHome/title-item-1.png')" alt="学校简介" />
         </div>
@@ -30,72 +30,74 @@
         </div>
       </div>
       <!-- 课程.介绍 -->
-      <div class="course-description w-1200 margin-auto">
-        <div class="title-tip-img">
-          <img :src="requirePath('newHome/title-item-2.png')" alt="课程.介绍" />
-        </div>
-        <div class="item-title-tip">
-          开放各课程的免费试听机会，让学员可以亲身体验学习环境和教学质量
-        </div>
-        <ul class="course-ul-list">
-          <li>
-            <div class="item-img">
-              <img :src="requirePath('newHome/course-item-1.png')" alt="祖传推拿" />
-            </div>
-            <div class="tip-text">
-              <h4>5天基础课程+30天进阶实践</h4>
-              <p>深化推拿理论、技艺和实践应用</p>
-            </div>
-          </li>
-          <li>
-            <div class="item-img">
-              <img :src="requirePath('newHome/course-item-2.png')" alt="古法艾灸" />
-            </div>
-            <div class="tip-text">
-              <h4>12天艾灸精讲课程</h4>
-              <p>深入讲解艾灸的理论知识和操作技巧</p>
-            </div>
-          </li>
-          <li>
-            <div class="item-img">
-              <img :src="requirePath('newHome/course-item-3.png')" alt="中医副项" />
-            </div>
-            <div class="tip-text">
-              <h4>7天多样化技法</h4>
-              <p>刮痧、拔罐、走罐、开背多种技法</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <!-- 全能技法套餐 -->
-      <div class="course-package">
-        <div class="tabs text" style="display: flex">
-          <div
-            class="tab-item"
-            v-for="(item, index) in setMealArr"
-            :key="index"
-            @click="handleChangeSetMeal(index)"
-          >
-            {{ item.title }}
-            <div v-if="index === 1" class="divide"></div>
+      <div class="course-description-box animate__fadeInUp onMounted-wow">
+        <div class="course-description w-1200 margin-auto">
+          <div class="title-tip-img">
+            <img :src="requirePath('newHome/title-item-2.png')" alt="课程.介绍" />
           </div>
-        </div>
-        <div class="subhead-text">
-          <div class="item-img">
-            <img :src="requirePath(setMealArr[0].imgPath)" alt="" />
+          <div class="item-title-tip">
+            开放各课程的免费试听机会，让学员可以亲身体验学习环境和教学质量
           </div>
-          <div class="right-box">
-            <div class="content">
-              <p>{{ setMealArrComp[0].subTitleOne }}</p>
-              <p>{{ setMealArrComp[0].subTitleTwo }}</p>
-              <p>{{ setMealArrComp[0].subTitleThree }}</p>
+          <ul class="course-ul-list">
+            <li>
+              <div class="item-img">
+                <img :src="requirePath('newHome/course-item-1.png')" alt="祖传推拿" />
+              </div>
+              <div class="tip-text">
+                <h4>5天基础课程+30天进阶实践</h4>
+                <p>深化推拿理论、技艺和实践应用</p>
+              </div>
+            </li>
+            <li>
+              <div class="item-img">
+                <img :src="requirePath('newHome/course-item-2.png')" alt="古法艾灸" />
+              </div>
+              <div class="tip-text">
+                <h4>12天艾灸精讲课程</h4>
+                <p>深入讲解艾灸的理论知识和操作技巧</p>
+              </div>
+            </li>
+            <li>
+              <div class="item-img">
+                <img :src="requirePath('newHome/course-item-3.png')" alt="中医副项" />
+              </div>
+              <div class="tip-text">
+                <h4>7天多样化技法</h4>
+                <p>刮痧、拔罐、走罐、开背多种技法</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- 全能技法套餐 -->
+        <div class="course-package">
+          <div class="tabs text" style="display: flex">
+            <div
+              class="tab-item"
+              v-for="(item, index) in setMealArr"
+              :key="index"
+              @click="handleChangeSetMeal(index)"
+            >
+              {{ item.title }}
+              <div v-if="index === 1" class="divide"></div>
             </div>
-            <img :src="requirePath('newHome/setMeal/button.png')" alt="" />
+          </div>
+          <div class="subhead-text">
+            <div class="item-img">
+              <img :src="requirePath(setMealArr[0].imgPath)" alt="" />
+            </div>
+            <div class="right-box">
+              <div class="content">
+                <p>{{ setMealArrComp[0].subTitleOne }}</p>
+                <p>{{ setMealArrComp[0].subTitleTwo }}</p>
+                <p>{{ setMealArrComp[0].subTitleThree }}</p>
+              </div>
+              <img :src="requirePath('newHome/setMeal/button.png')" alt="" />
+            </div>
           </div>
         </div>
       </div>
       <!-- 六大优势 -->
-      <div class="margin-auto advantage-content">
+      <div class="margin-auto advantage-content animate__fadeInUp onMounted-wow">
         <div class="title-tip-img">
           <img :src="requirePath('newHome/title-item-3.png')" alt="六大.优势" />
         </div>
@@ -106,7 +108,7 @@
       </div>
 
       <!-- 师资力量 -->
-      <div class="teachers-huge">
+      <div class="teachers-huge animate__fadeInUp onMounted-wow">
         <div class="title-tip-img">
           <img :src="requirePath('newHome/title-item-4.png')" alt="师资力量" />
         </div>
@@ -168,7 +170,7 @@
       </div>
 
       <!-- 办学宗旨 -->
-      <div class="school-objective">
+      <div class="school-objective animate__fadeInUp onMounted-wow">
         <div class="title-tip-img">
           <img :src="requirePath('newHome/title-item-5.png')" alt="办学宗旨" />
         </div>
@@ -207,7 +209,7 @@
         </div>
       </div>
       <!-- 学校荣誉 -->
-      <div class="school-honor">
+      <div class="school-honor animate__fadeInUp onMounted-wow">
         <div class="title-tip-img">
           <img :src="requirePath('newHome/title-item-6.png')" alt="学校荣誉" />
         </div>
@@ -239,44 +241,45 @@
       </div>
 
       <!-- 重点答疑 -->
-      <div class="answer-questions">
-        <div class="title-tip-img">
-          <img :src="requirePath('newHome/title-item-7.png')" alt="重点答疑" />
+      <div class="answer-questions-box animate__fadeInUp onMounted-wow">
+        <div class="answer-questions">
+          <div class="title-tip-img">
+            <img :src="requirePath('newHome/title-item-7.png')" alt="重点答疑" />
+          </div>
+          <div class="item-title-tip">传承中医文化 福泽百姓大众</div>
+          <ul class="questions-list">
+            <li v-for="(item, index) in questionsList" :key="index">
+              <p class="question-item red">Q：{{ item.q }}</p>
+              <p class="answer-item">A：{{ item.a }}</p>
+            </li>
+          </ul>
+          <div class="answer-questions-swiper">
+            <swiper
+              :pagination="{
+                clickable: true
+              }"
+              :modules="teachershugeModules"
+            >
+              <swiper-slide v-for="(item, i) in questionsList" :key="i">
+                <div class="swiper-item">
+                  <p class="question-item red">Q：{{ item.q }}</p>
+                  <p class="answer-item">A：{{ item.a }}</p>
+                </div>
+              </swiper-slide>
+            </swiper>
+          </div>
         </div>
-        <div class="item-title-tip">传承中医文化 福泽百姓大众</div>
-        <ul class="questions-list">
-          <li v-for="(item, index) in questionsList" :key="index">
-            <p class="question-item red">Q：{{ item.q }}</p>
-            <p class="answer-item">A：{{ item.a }}</p>
-          </li>
-        </ul>
-        <div class="answer-questions-swiper">
-          <swiper
-            :pagination="{
-              clickable: true
-            }"
-            :modules="teachershugeModules"
-          >
-            <swiper-slide v-for="(item, i) in questionsList" :key="i">
-              <div class="swiper-item">
-                <p class="question-item red">Q：{{ item.q }}</p>
-                <p class="answer-item">A：{{ item.a }}</p>
-              </div>
-            </swiper-slide>
-          </swiper>
+        <!-- 页脚内容区 -->
+        <div class="footer-info-wrap">
+          <new-footer-info-comp />
         </div>
-      </div>
-
-      <!-- 页脚内容区 -->
-      <div class="footer-info-wrap">
-        <new-footer-info-comp />
       </div>
     </div>
   </div>
 </template>
 <script setup>
 import newFooterInfoComp from '@/components/bottomFooter/newFooterInfo.vue'
-import { computed, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 import 'swiper/css'
@@ -287,9 +290,26 @@ import 'swiper/css/effect-fade'
 // import required modules
 import { Pagination, Autoplay, EffectCoverflow } from 'swiper/modules'
 import { requirePath } from '@/utils/index.js'
+import WOW from 'wow.js'
 
 const modules = ref([Autoplay])
 const teachershugeModules = ref([EffectCoverflow, Pagination, Autoplay])
+
+onMounted(() => {
+  const wowInt = new WOW({
+    // 对所有拥有该class的元素挂载动画
+    boxClass: 'onMounted-wow',
+    // 需要挂载的动画元素
+    animateClass: 'animate__animated',
+    // 偏移值（即偏移一定距离后再执行动画，推荐设置！）
+    offset: 100,
+    // 移动设备是否生效
+    mobile: true,
+    // 是否支持异步
+    live: true
+  })
+  wowInt.init()
+})
 
 const questionsList = ref([
   {
@@ -507,9 +527,7 @@ const handleChangeSetMeal = (index) => {
   .recruit-student-content {
     height: auto;
     padding-top: 110px;
-    padding-bottom: 100px;
-    background-color: #f5f2e8;
-    background: url('@/assets/newHome/new-bg.png') no-repeat center/cover;
+    background-color: #f4eee3;
     @include media($breakpoint-md) {
       padding-top: 40px;
     }
@@ -533,7 +551,6 @@ const handleChangeSetMeal = (index) => {
   }
 
   .school-overview {
-    background-color: #f5f2e8;
     .text-box {
       width: 80%;
       height: 553px;
@@ -558,135 +575,144 @@ const handleChangeSetMeal = (index) => {
     }
   }
   //课程介绍
-  .course-description {
-    margin-top: 90px;
-    @include media($breakpoint-md) {
-      margin-top: 40px;
-    }
-    .item-title-tip {
-      text-align: center;
-      font-size: 20px;
-      color: #45413c;
+  .course-description-box {
+    background: url('@/assets/newHome/course-bg.png') no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+    .course-description {
+      margin-top: 90px;
       @include media($breakpoint-md) {
-        font-size: 12px;
-        padding: 0 20px;
+        margin-top: 40px;
       }
-    }
-    .course-ul-list {
-      margin-top: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      li {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .item-img {
-        width: 237px;
-        height: 258px;
-        @include media($breakpoint-md) {
-          width: 100%;
-          height: 100px;
-        }
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-        }
-      }
-      .tip-text {
-        margin-top: 20px;
+      .item-title-tip {
         text-align: center;
-        h4,
-        p {
-          font-size: 18px;
+        font-size: 20px;
+        color: #45413c;
+        @include media($breakpoint-md) {
+          font-size: 12px;
+          padding: 0 20px;
+        }
+      }
+      .course-ul-list {
+        margin-top: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        li {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .item-img {
+          width: 237px;
+          height: 258px;
           @include media($breakpoint-md) {
-            font-size: 12px;
+            width: 100%;
+            height: 100px;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
           }
         }
-        p {
-          margin-top: 10px;
-          color: #2c2a24;
+        .tip-text {
+          margin-top: 20px;
+          text-align: center;
+          h4,
+          p {
+            font-size: 18px;
+            @include media($breakpoint-md) {
+              font-size: 12px;
+            }
+          }
+          p {
+            margin-top: 10px;
+            color: #2c2a24;
+          }
         }
       }
     }
-  }
-  //全能技法套餐
-  .course-package {
-    max-width: 1153px;
-    height: 384px;
-    margin: 140px auto 0;
-    background: url(./../../assets/newHome/outline-box.png) no-repeat center/cover;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @include media($breakpoint-md) {
-      display: none;
-    }
-    .tabs {
-      position: absolute;
-      top: -38px;
-      left: 38px;
-      .tab-item {
-        display: flex;
-      }
-      .tab-item:nth-child(1) {
-        width: 361px;
-        // height: 96px;
-        background: url(./../../assets/newHome/tancan-box.png) no-repeat center/cover;
-        //transform: translate(36px, -40px);
-        display: flex;
-        justify-content: center;
-        line-height: 96px;
-        font-size: 34px;
-        color: #552712;
-      }
-    }
-    .text {
-      color: #673c25;
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .subhead-text {
+    //全能技法套餐
+    .course-package {
+      max-width: 1153px;
+      height: 384px;
+      margin: 140px auto 380px;
+      background: url(./../../assets/newHome/outline-box.png) no-repeat center/cover;
+      position: relative;
       display: flex;
+      justify-content: center;
       align-items: center;
-      padding-left: 40px;
-      .item-img {
-        padding-right: 20px;
+      @include media($breakpoint-md) {
+        display: none;
       }
-      .right-box {
-        width: 457px;
-        height: 263px;
-        background: url('@/assets/newHome/setMeal/taocan-bg.png') no-repeat;
-        background-size: cover;
+      .tabs {
+        position: absolute;
+        top: -38px;
+        left: 38px;
+        .tab-item {
+          display: flex;
+        }
+        .tab-item:nth-child(1) {
+          width: 361px;
+          // height: 96px;
+          background: url(./../../assets/newHome/tancan-box.png) no-repeat center/cover;
+          //transform: translate(36px, -40px);
+          display: flex;
+          justify-content: center;
+          line-height: 96px;
+          font-size: 34px;
+          color: #552712;
+        }
+      }
+      .text {
+        color: #673c25;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .subhead-text {
         display: flex;
         align-items: center;
-        flex-direction: column;
-        .content {
-          font-size: 24px;
-          margin: 30px 0;
+        padding-left: 40px;
+        .item-img {
+          padding-right: 20px;
         }
-        img {
-          width: 255px;
-          height: 80px;
-          cursor: pointer;
+        .right-box {
+          width: 457px;
+          height: 263px;
+          background: url('@/assets/newHome/setMeal/taocan-bg.png') no-repeat;
+          background-size: cover;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          .content {
+            font-size: 24px;
+            margin: 30px 0;
+          }
+          img {
+            width: 255px;
+            height: 80px;
+            cursor: pointer;
+          }
         }
       }
-    }
-    .divide {
-      margin: 0 26px;
-      width: 1px;
-      height: 20px;
-      background: #937052;
+      .divide {
+        margin: 0 26px;
+        width: 1px;
+        height: 20px;
+        background: #937052;
+      }
     }
   }
 
   //重点答疑
+  .answer-questions-box {
+    background: url('@/assets/newHome/teachers-bg.png') no-repeat;
+    background-size: 100% 100%;
+  }
   .answer-questions {
     max-width: 1106px;
-    margin: 140px auto 0;
+    margin: 0 auto;
     .item-title-tip {
       text-align: center;
       font-size: 20px;
@@ -739,7 +765,7 @@ const handleChangeSetMeal = (index) => {
   }
   // 六大优势
   .advantage-content {
-    margin-top: 100px;
+    margin-top: -150px;
     width: 90%;
 
     .item-title-tip {
@@ -765,6 +791,8 @@ const handleChangeSetMeal = (index) => {
   // 师资力量
   .teachers-huge {
     margin-top: 80px;
+    background: url('@/assets/newHome/teachers-bg.png') no-repeat;
+    background-size: 100% 100%;
     .teachershuge-swiperBox {
       margin-top: 100px;
       height: 650px;
@@ -845,9 +873,13 @@ const handleChangeSetMeal = (index) => {
   }
   // 学校荣誉
   .school-honor {
+    overflow: hidden;
     margin-top: 80px;
+    background: url('@/assets/newHome/course-bg.png') no-repeat;
+    background-size: 100% 100%;
     .school-honor-swiperBox {
       margin-top: 100px;
+      margin-bottom: 300px;
       height: 400px;
       @include media($breakpoint-md) {
         height: 150px;
@@ -869,6 +901,7 @@ const handleChangeSetMeal = (index) => {
   .footer-info-wrap {
     max-width: 1106px;
     margin: 140px auto 0;
+    padding-bottom: 200px;
   }
 }
 </style>

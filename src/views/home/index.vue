@@ -69,29 +69,28 @@
       </div>
       <!-- 全能技法套餐 -->
       <div class="course-package">
-        <!--        <div class="tancan-box-img">全能技法套餐</div>-->
-        <!--        <div class="tip-content">-->
-        <!--          <div class="text" @click="handleChangeSetMeal(2)">经典传承套餐</div>-->
-        <!--          <div class="divide"></div>-->
-        <!--          <div class="text" @click="handleChangeSetMeal(3)">艾灸养生套餐</div>-->
-        <!--        </div>-->
-        <div class="tabs text" style="display: flex; justify-content: space-around">
+        <div class="tabs text" style="display: flex">
           <div
             class="tab-item"
-            :class="{ 'tancan-box-img': currentTab === index }"
             v-for="(item, index) in setMealArr"
             :key="index"
             @click="handleChangeSetMeal(index)"
           >
             {{ item.title }}
+            <div v-if="index === 1" class="divide"></div>
           </div>
         </div>
         <div class="subhead-text">
           <div class="item-img">
-            <img :src="requirePath('newHome/taocan-item.png')" alt="" />
+            <img :src="requirePath(setMealArr[0].imgPath)" alt="" />
           </div>
           <div class="right-box">
-            <img :src="requirePath('newHome/taocan-item-right.png')" alt="" />
+            <div class="content">
+              <p>{{ setMealArrComp[0].subTitleOne }}</p>
+              <p>{{ setMealArrComp[0].subTitleTwo }}</p>
+              <p>{{ setMealArrComp[0].subTitleThree }}</p>
+            </div>
+            <img :src="requirePath('newHome/setMeal/button.png')" alt="" />
           </div>
         </div>
       </div>
@@ -280,7 +279,7 @@
 </template>
 <script setup>
 import newFooterInfoComp from '@/components/bottomFooter/newFooterInfo.vue'
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 import 'swiper/css'
@@ -391,6 +390,7 @@ const teacherDataArr = ref([
 
 const setMealArr = ref([
   {
+    id: 1,
     title: '全能技法套餐',
     subTitleOne: '全能技艺掌握',
     subTitleTwo: '中医养生大全',
@@ -398,6 +398,7 @@ const setMealArr = ref([
     imgPath: 'newHome/setMeal/quan.png'
   },
   {
+    id: 2,
     title: '经典传承套餐',
     subTitleOne: '推拿理疗经典',
     subTitleTwo: '祖传技艺精华',
@@ -405,6 +406,7 @@ const setMealArr = ref([
     imgPath: 'newHome/setMeal/jing.png'
   },
   {
+    id: 3,
     title: '艾灸养生套餐',
     subTitleOne: '艾灸理疗养生',
     subTitleTwo: '温通疗法精讲',
@@ -415,8 +417,35 @@ const setMealArr = ref([
 
 const currentTab = ref(0)
 
+// 根据下标替换数组元素的位置
+const moveElementInArray = (array, fromIndex, toIndex) => {
+  const element = array.splice(fromIndex, 1)[0]
+  array.splice(toIndex, 0, element)
+  return array
+}
+
+const setMealArrComp = computed(() => {
+  return setMealArr.value
+})
+
+watch(
+  () => setMealArr.value,
+  (newVal) => {
+    setMealArr.value = newVal
+  },
+  {
+    deep: true,
+    immediate: true
+  }
+)
+
 // 切换课程套餐
 const handleChangeSetMeal = (index) => {
+  if (index === 1) {
+    moveElementInArray(setMealArr.value, 1, 0)
+  } else if (index === 2) {
+    moveElementInArray(setMealArr.value, 2, 0)
+  }
   currentTab.value = index
 }
 </script>
@@ -573,19 +602,30 @@ const handleChangeSetMeal = (index) => {
     margin: 140px auto 0;
     background: url(./../../assets/newHome/outline-box.png) no-repeat center/cover;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include media($breakpoint-md) {
       display: none;
     }
-
-    .tancan-box-img {
-      width: 361px;
-      // height: 96px;
-      background: url(./../../assets/newHome/tancan-box.png) no-repeat center/cover;
-      transform: translate(36px, -40px);
-      text-align: center;
-      line-height: 96px;
-      font-size: 34px;
-      color: #552712;
+    .tabs {
+      position: absolute;
+      top: -38px;
+      left: 38px;
+      .tab-item {
+        display: flex;
+      }
+      .tab-item:nth-child(1) {
+        width: 361px;
+        // height: 96px;
+        background: url(./../../assets/newHome/tancan-box.png) no-repeat center/cover;
+        //transform: translate(36px, -40px);
+        display: flex;
+        justify-content: center;
+        line-height: 96px;
+        font-size: 34px;
+        color: #552712;
+      }
     }
     .text {
       color: #673c25;
@@ -596,21 +636,33 @@ const handleChangeSetMeal = (index) => {
       display: flex;
       align-items: center;
       padding-left: 40px;
-      margin-top: -35px;
-    }
-    .tip-content {
-      display: flex;
-      align-items: center;
-      position: absolute;
-      top: -30px;
-      left: 406px;
-
-      .divide {
-        margin: 0 26px;
-        width: 1px;
-        height: 20px;
-        background: #937052;
+      .item-img {
+        padding-right: 20px;
       }
+      .right-box {
+        width: 457px;
+        height: 263px;
+        background: url('@/assets/newHome/setMeal/taocan-bg.png') no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .content {
+          font-size: 24px;
+          margin: 30px 0;
+        }
+        img {
+          width: 255px;
+          height: 80px;
+          cursor: pointer;
+        }
+      }
+    }
+    .divide {
+      margin: 0 26px;
+      width: 1px;
+      height: 20px;
+      background: #937052;
     }
   }
 

@@ -30,8 +30,8 @@
         </div>
       </div>
       <!-- 课程.介绍 -->
-      <div class="course-description-box animate__fadeInUp onMounted-wow">
-        <div class="course-description w-1200 margin-auto">
+      <div class="course-description-box">
+        <div class="course-description w-1200 margin-auto animate__fadeInUp onMounted-wow">
           <div class="title-tip-img">
             <img :src="requirePath('newHome/title-item-2.png')" alt="课程.介绍" />
           </div>
@@ -104,7 +104,7 @@
           </ul>
         </div>
         <!-- 全能技法套餐 -->
-        <div class="course-package">
+        <div class="course-package animate__fadeInUp onMounted-wow">
           <div class="tabs text" style="display: flex">
             <div
               class="tab-item"
@@ -130,7 +130,7 @@
             </div>
           </div>
         </div>
-        <div class="course-package-swiper custom-swiper-box-mobile">
+        <div class="course-package-swiper custom-swiper-box-mobile animate__fadeInUp onMounted-wow">
           <swiper
             :pagination="{
               clickable: true
@@ -173,13 +173,15 @@
       </div>
 
       <!-- 师资力量 -->
-      <div class="teachers-huge animate__fadeInUp onMounted-wow">
-        <div class="title-tip-img">
+      <div class="teachers-huge">
+        <div class="title-tip-img animate__fadeInUp onMounted-wow">
           <img :src="requirePath('newHome/title-item-4.png')" alt="师资力量" />
         </div>
-        <div class="item-title-tip">师资雄厚&nbsp;·&nbsp;非遗传承</div>
+        <div class="item-title-tip animate__fadeInUp onMounted-wow">
+          师资雄厚&nbsp;·&nbsp;非遗传承
+        </div>
         <!-- 轮播图区域-->
-        <div class="teachershuge-swiperBox custom-swiper-box">
+        <div class="teachershuge-swiperBox custom-swiper-box animate__fadeInUp onMounted-wow">
           <swiper
             :loop="true"
             :autoplay="{ delay: 5000, disableOnInteraction: false }"
@@ -218,7 +220,9 @@
         </div>
 
         <!--移动端轮播图-->
-        <div class="teachershuge-swiperBox-mobile custom-swiper-box-mobile">
+        <div
+          class="teachershuge-swiperBox-mobile custom-swiper-box-mobile animate__fadeInUp onMounted-wow"
+        >
           <swiper
             :pagination="{
               clickable: true
@@ -279,16 +283,17 @@
             </swiper-slide>
           </swiper>
         </div>
-        <div class="school-objective-swiperBox-mobile">
+        <div class="school-objective-swiperBox-mobile custom-swiper-box-mobile">
           <swiper
             :loop="true"
             :pagination="{
               clickable: true
             }"
-            :modules="modules"
+            :modules="teachershugeModules"
             class="mySwiper"
           >
             <swiper-slide
+              style="padding-bottom: 30px"
               class="schoolobjective-swiper-slide"
               v-for="item in schoolObjectiveImgArr"
               :key="item"
@@ -328,16 +333,17 @@
             </swiper-slide>
           </swiper>
         </div>
-        <div class="school-honor-swiperBox-mobile">
+        <div class="school-honor-swiperBox-mobile custom-swiper-box-mobile">
           <swiper
             :loop="true"
             :pagination="{
               clickable: true
             }"
             class="mySwiper"
-            :modules="modules"
+            :modules="teachershugeModules"
           >
             <swiper-slide
+              style="padding-bottom: 30px"
               class="schoolhonor-swiper-slide"
               v-for="item in schoolHonorImgArr"
               :key="item"
@@ -349,8 +355,8 @@
       </div>
 
       <!-- 重点答疑 -->
-      <div class="answer-questions-box animate__fadeInUp onMounted-wow">
-        <div class="answer-questions">
+      <div class="answer-questions-box">
+        <div class="answer-questions animate__fadeInUp onMounted-wow">
           <div class="title-tip-img">
             <img :src="requirePath('newHome/title-item-7.png')" alt="重点答疑" />
           </div>
@@ -678,6 +684,9 @@ const handleChangeSetMeal = (index) => {
       font-size: 20px;
       color: #45413c;
       margin-top: -50px;
+      @include media($breakpoint-md) {
+        font-size: 14px;
+      }
     }
   }
 
@@ -726,11 +735,8 @@ const handleChangeSetMeal = (index) => {
         margin-top: 40px;
       }
       .item-title-tip {
-        text-align: center;
-        font-size: 20px;
-        color: #45413c;
         @include media($breakpoint-md) {
-          font-size: 12px;
+          font-size: 14px;
           padding: 0 20px;
         }
       }
@@ -928,11 +934,6 @@ const handleChangeSetMeal = (index) => {
   .answer-questions {
     max-width: 1106px;
     margin: 0 auto;
-    .item-title-tip {
-      text-align: center;
-      font-size: 20px;
-      color: #45413c;
-    }
     .red {
       color: #c25449;
     }
@@ -990,6 +991,9 @@ const handleChangeSetMeal = (index) => {
       font-size: 20px;
       color: #45413c;
       margin-top: -50px;
+      @include media($breakpoint-md) {
+        font-size: 14px;
+      }
     }
     .advantage-item-img {
       margin-top: 60px;
@@ -1070,7 +1074,7 @@ const handleChangeSetMeal = (index) => {
     }
     .teachershuge-swiperBox-mobile {
       display: none;
-      margin: 0 40px;
+      margin: 30px 40px 0;
       @include media($breakpoint-md) {
         display: block;
       }
@@ -1119,7 +1123,7 @@ const handleChangeSetMeal = (index) => {
       display: none;
       @include media($breakpoint-md) {
         display: block;
-        margin: 0 30px;
+        margin: 30px 30px 0;
         .schoolobjective-swiper-slide {
           img {
             max-height: 100%;
@@ -1160,7 +1164,7 @@ const handleChangeSetMeal = (index) => {
       display: none;
       @include media($breakpoint-md) {
         display: block;
-        margin: 0 30px;
+        margin: 30px 30px 0;
         .schoolhonor-swiper-slide {
           img {
             max-height: 100%;

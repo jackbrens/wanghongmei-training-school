@@ -126,7 +126,7 @@
                 <p>{{ setMealArrComp[0].subTitleTwo }}</p>
                 <p>{{ setMealArrComp[0].subTitleThree }}</p>
               </div>
-              <img :src="requirePath('newHome/setMeal/button.png')" alt="" />
+              <img :src="requirePath('newHome/setMeal/button.png')" alt="" @click="toCustomer" />
             </div>
           </div>
         </div>
@@ -152,7 +152,11 @@
                       <p>{{ setMealArrComp[i].subTitleTwo }}</p>
                       <p>{{ setMealArrComp[i].subTitleThree }}</p>
                     </div>
-                    <img :src="requirePath('newHome/setMeal/button.png')" alt="" />
+                    <img
+                      :src="requirePath('newHome/setMeal/button.png')"
+                      alt=""
+                      @click="toCustomer"
+                    />
                   </div>
                 </div>
               </div>
@@ -583,6 +587,12 @@ const handleChangeSetMeal = (index) => {
     moveElementInArray(setMealArr.value, 2, 0)
   }
   currentTab.value = index
+}
+
+const toCustomer = () => {
+  console.log('toCustomer')
+  location.href =
+    'http://kf.whmpx.com/index/index/home?visiter_id=&visiter_name=&avatar=&business_id=1&groupid=1&special=1'
 }
 </script>
 <style lang="scss" scoped>

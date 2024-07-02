@@ -67,6 +67,41 @@
               </div>
             </li>
           </ul>
+          <ul class="course-ul-list course-ul-list-mobile">
+            <li>
+              <div class="item-img">
+                <img :src="requirePath('newHome/course-item-1.png')" alt="祖传推拿" />
+              </div>
+              <div class="tip-text">
+                <h4>5天基础课程</h4>
+                <h4>+30天进阶实践</h4>
+                <p>深化推拿理论、</p>
+                <p>技艺和实践应用</p>
+              </div>
+            </li>
+            <li>
+              <div class="item-img">
+                <img :src="requirePath('newHome/course-item-2.png')" alt="古法艾灸" />
+              </div>
+              <div class="tip-text">
+                <h4>12天艾灸</h4>
+                <h4>精讲课程</h4>
+                <p>深入讲解艾灸的</p>
+                <p>理论知识和操作技巧</p>
+              </div>
+            </li>
+            <li>
+              <div class="item-img">
+                <img :src="requirePath('newHome/course-item-3.png')" alt="中医副项" />
+              </div>
+              <div class="tip-text">
+                <h4>7天课程</h4>
+                <h4>多样化技法</h4>
+                <p>刮痧、拔罐、走罐、</p>
+                <p>开背多种技法</p>
+              </div>
+            </li>
+          </ul>
         </div>
         <!-- 全能技法套餐 -->
         <div class="course-package">
@@ -183,14 +218,15 @@
         </div>
 
         <!--移动端轮播图-->
-        <div class="teachershuge-swiperBox-mobile">
+        <div class="teachershuge-swiperBox-mobile custom-swiper-box-mobile">
           <swiper
             :pagination="{
               clickable: true
             }"
+            :auto-height="true"
             :modules="teachershugeModules"
           >
-            <swiper-slide v-for="(item, i) in teacherDataArr" :key="i">
+            <swiper-slide style="padding-bottom: 30px" v-for="(item, i) in teacherDataArr" :key="i">
               <div class="swiper-item">
                 <div class="head-box">
                   <img class="teacher-picture" :src="requirePath(item.imgUrl)" :alt="item.name" />
@@ -325,14 +361,19 @@
               <p class="answer-item">A：{{ item.a }}</p>
             </li>
           </ul>
-          <div class="answer-questions-swiper">
+          <div class="answer-questions-swiper custom-swiper-box-mobile">
             <swiper
               :pagination="{
                 clickable: true
               }"
+              :auto-height="true"
               :modules="teachershugeModules"
             >
-              <swiper-slide v-for="(item, i) in questionsList" :key="i">
+              <swiper-slide
+                style="padding-bottom: 30px"
+                v-for="(item, i) in questionsList"
+                :key="i"
+              >
                 <div class="swiper-item">
                   <p class="question-item red">Q：{{ item.q }}</p>
                   <p class="answer-item">A：{{ item.a }}</p>
@@ -676,7 +717,8 @@ const handleChangeSetMeal = (index) => {
     background-size: 100% 100%;
     overflow: hidden;
     @include media($breakpoint-md) {
-      background: url('@/assets/newHome/course-bg-mobile.png') no-repeat;
+      background: url('@/assets/newHome/course-bg-mobile.png') no-repeat center;
+      background-size: contain;
     }
     .course-description {
       margin-top: 90px;
@@ -697,6 +739,9 @@ const handleChangeSetMeal = (index) => {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+        @include media($breakpoint-md) {
+          display: none;
+        }
         li {
           display: flex;
           flex-direction: column;
@@ -725,10 +770,16 @@ const handleChangeSetMeal = (index) => {
               font-size: 12px;
             }
           }
-          p {
+          p:first-of-type {
             margin-top: 10px;
             color: #2c2a24;
           }
+        }
+      }
+      .course-ul-list-mobile {
+        display: none;
+        @include media($breakpoint-md) {
+          display: flex;
         }
       }
     }
@@ -870,6 +921,9 @@ const handleChangeSetMeal = (index) => {
   .answer-questions-box {
     background: url('@/assets/newHome/teachers-bg.png') no-repeat;
     background-size: 100% 100%;
+    @include media($breakpoint-md) {
+      background: none;
+    }
   }
   .answer-questions {
     max-width: 1106px;
@@ -917,10 +971,10 @@ const handleChangeSetMeal = (index) => {
         display: block;
       }
       .swiper-item {
-        height: 220px;
+        //height: 220px;
         background: #ffffff;
         border-radius: 20px;
-        padding: 40px;
+        padding: 20px;
       }
     }
   }
@@ -965,6 +1019,10 @@ const handleChangeSetMeal = (index) => {
     margin-top: 80px;
     background: url('@/assets/newHome/teachers-bg.png') no-repeat;
     background-size: 100% 100%;
+    @include media($breakpoint-md) {
+      background: url('@/assets/newHome/course-bg-mobile.png') no-repeat center;
+      background-size: contain;
+    }
     .teachershuge-swiperBox {
       margin-top: 100px;
       height: 650px;
@@ -1012,7 +1070,7 @@ const handleChangeSetMeal = (index) => {
     }
     .teachershuge-swiperBox-mobile {
       display: none;
-      margin: 0 30px;
+      margin: 0 40px;
       @include media($breakpoint-md) {
         display: block;
       }
@@ -1094,7 +1152,7 @@ const handleChangeSetMeal = (index) => {
       .schoolhonor-swiper-slide {
         img {
           max-height: 100%;
-          max-width: 600px;
+          max-width: 500px;
         }
       }
     }
@@ -1121,6 +1179,11 @@ const handleChangeSetMeal = (index) => {
     max-width: 1106px;
     margin: 140px auto 0;
     padding-bottom: 200px;
+    padding-bottom: 200px;
+    @include media($breakpoint-md) {
+      margin: 60px auto 0;
+      padding: 0 20px 70px;
+    }
   }
 }
 </style>

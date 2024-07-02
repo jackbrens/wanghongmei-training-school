@@ -38,6 +38,7 @@ import { requirePath } from '@/utils/index.js'
     }
     .contact-list {
       margin-top: 30px;
+      margin-bottom: 30px;
       li {
         line-height: 1.5;
         font-size: 18px;

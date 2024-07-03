@@ -188,7 +188,6 @@
         <div class="teachershuge-swiperBox custom-swiper-box animate__fadeInUp onMounted-wow">
           <swiper
             :loop="true"
-            :autoplay="{ delay: 5000, disableOnInteraction: false }"
             :effect="'coverflow'"
             :grabCursor="true"
             :centeredSlides="true"
@@ -214,7 +213,7 @@
                 </div>
                 <div class="right-description">
                   <div class="name-img">
-                    <img :src="requirePath(item.nameImg)" :alt="item.name" />
+                    {{ item.name }}
                   </div>
                   <div class="desc-text">{{ item.desc }}</div>
                 </div>
@@ -238,7 +237,7 @@
               <div class="swiper-item">
                 <div class="head-box">
                   <img class="teacher-picture" :src="requirePath(item.imgUrl)" :alt="item.name" />
-                  <img class="teacher-name" :src="requirePath(item.nameImg)" :alt="item.name" />
+                  <div class="name">{{ item.name }}</div>
                 </div>
                 <div class="desc-text">
                   {{ item.desc }}
@@ -293,6 +292,7 @@
             :pagination="{
               clickable: true
             }"
+            :autoplay="{ delay: 2500, disableOnInteraction: false }"
             :modules="teachershugeModules"
             class="mySwiper"
           >
@@ -340,6 +340,7 @@
         <div class="school-honor-swiperBox-mobile custom-swiper-box-mobile">
           <swiper
             :loop="true"
+            :autoplay="{ delay: 3000, disableOnInteraction: false }"
             :pagination="{
               clickable: true
             }"
@@ -393,7 +394,7 @@
           </div>
         </div>
         <!-- 页脚内容区 -->
-        <div class="footer-info-wrap">
+        <div class="footer-info-wrap animate__fadeInUp onMounted-wow">
           <new-footer-info-comp />
         </div>
       </div>
@@ -465,11 +466,11 @@ const schoolObjectiveImgArr = ref([
 //学校荣誉 轮播图
 const schoolHonorImgArr = ref([
   `qualifications/photo1.jpg`,
-  `qualifications/photo2.jpg`,
   `qualifications/photo3.jpg`,
   `qualifications/photo4.jpg`,
   `qualifications/photo5.jpg`,
   `qualifications/photo6.jpg`,
+  `qualifications/photo2.jpg`,
   `qualifications/photo7.jpg`,
   `qualifications/photo8.jpg`,
   `qualifications/photo9.jpg`
@@ -477,6 +478,36 @@ const schoolHonorImgArr = ref([
 
 // 老师 轮播图
 const teacherDataArr = ref([
+  {
+    name: `王红梅`,
+    nameImg: `newHome/teacher/nameimg/王红梅.png`,
+    imgUrl: `newHome/teacher/王红梅.jpg`,
+    desc: `盲人医疗按摩师，王红梅师徒传承会第一代传承人、中华医学国际发展联合会推拿按摩学科主任委员、安徽省扶残助残先进个人。1996年跟随陶宜珍老师系统地学习了推拿按摩的基本理论和实践技能，在长期的中医临床实践中摸索出了王红梅推拿按摩的独特手法：“触摸诊法”、“肘滚顺筋法”和“踩桥理疗法”，将中医推拿技术发扬光大。“王红梅”作为芜湖市非物质文化遗产单位，慕名而来求医或学习者众多，几十年来，王红梅老师亲自通过“师带徒”的方式培养徒弟或学员近三千人。`
+  },
+  {
+    name: `肖业宇`,
+    nameImg: `newHome/teacher/nameimg/肖业宇.png`,
+    imgUrl: `newHome/teacher/肖业宇.jpg`,
+    desc: `农工党员，王红梅师徒传承会第二代传承人，王红梅祖传按摩技能非遗传承人，世界中医药学会联合会按摩推广委员会理事。毕业于安徽省中医药高专针推科，从小跟随母亲学习王红梅祖传按摩手法，持有高级按摩师资格证、康复保健调理师高级证书等相关职业技能资质等。数十年来将王红梅祖传按摩从一家门店运营发展至集培训学校，中草药种植基地和几十家门店为一体的集团化公司，在技术和经营管理理念上都有自己独到的见解。2023年被聘任为芜湖市产业教授。`
+  },
+  {
+    name: `王丽茹`,
+    nameImg: `newHome/teacher/nameimg/王丽茹.png`,
+    imgUrl: `newHome/teacher/王丽茹.jpg`,
+    desc: `中共党员，王红梅师徒传承会第二代传承人，人力资源和社会保障部中国就业培训指导中心(CETTIC)职业技能培训中心认证培训讲师。从业十余年，持有高级灸疗师证书、经络调理师证书、灸疗师师资证书等相关职业技能资质等。作为中医养生调理专家，深耕中国传统中医行业，创办了“茹德堂”艾灸养生品牌，是世界中医药学会联合会艾灸推广委员会理事，2015年作为中方特派讲演代表在世界中医药学会联合会主办的亚洲艾灸高峰论坛（日本大阪）作中医艾灸养生课题讲演汇报。2023年被聘任为芜湖市产业教授。`
+  },
+  {
+    name: `梅利民`,
+    nameImg: `newHome/teacher/nameimg/梅利民.png`,
+    imgUrl: `newHome/teacher/梅利民.jpg`,
+    desc: `安徽省推拿专业委员会员学科带头人，安徽中医药大学硕士生导师、芜湖市政协委员,中华中医药学会中医疼痛学会常委、中华中医药学会中医推拿学会委员、全国脊诊整脊技术学术委员会常委、安徽省推拿专业委员会副主任委员、安徽省中医药风湿病专业常委、安徽省风湿病学委员会委员。国家卫生健康委员会规划教材暨全国中医药高职高专教育教材《推拿治疗》第三版、第四版主编, 《保健按摩学》副主编、 《头痛眩晕》副主编。`
+  },
+  {
+    name: `袁磊`,
+    nameImg: `newHome/teacher/nameimg/袁磊.png`,
+    imgUrl: `newHome/teacher/袁磊.jpg`,
+    desc: `执业中医师，现就职于北京同仁堂，毕业于北京中医药大学，数代家传，后拜师张启明教授，并跟诊皮肤科姚玉珍主任，针灸科刘赫主任学习，后结合自身多年临床经验和感悟，自创周天三心针法，与经方搭配，针药合用。临床擅长：各类经络瘀堵疼痛性疾病、各类胃病、失眠、焦虑抑郁、各类鼻炎、各类皮肤性问题、月经病、结节及肿瘤、小儿（多动症、抽动症、消化不良、成长缓慢、腺样体肥大、鼻炎）。`
+  },
   {
     name: `程龙`,
     nameImg: `newHome/teacher/nameimg/程龙.png`,
@@ -494,37 +525,6 @@ const teacherDataArr = ref([
     nameImg: `newHome/teacher/nameimg/毛新慧.png`,
     imgUrl: `newHome/teacher/毛新慧.jpg`,
     desc: `王红梅师徒传承会第三代传承人，2013年跟随王丽茹老师学习中医艾灸、按摩等技能至今。人社部高级灸疗师，王红梅职业培训学校手法教学老师，王红梅各门店技术总督导。特别擅长调理脾胃，妇科，颈椎病，腰椎病。`
-  },
-  {
-    name: `梅利民`,
-    nameImg: `newHome/teacher/nameimg/梅利民.png`,
-    imgUrl: `newHome/teacher/梅利民.jpg`,
-    desc: `安徽省推拿专业委员会员学科带头人，安徽中医药大学硕士生导师、芜湖市政协委员,中华中医药学会中医疼痛学会常委、中华中医药学会中医推拿学会委员、全国脊诊整脊技术学术委员会常委、安徽省推拿专业委员会副主任委员、安徽省中医药风湿病专业常委、安徽省风湿病学委员会委员。国家卫生健康委员会规划教材暨全国中医药高职高专教育教材《推拿治疗》第三版、第四版主编, 《保健按摩学》副主编、 《头痛眩晕》副主编。`
-  },
-  {
-    name: `王红梅`,
-    nameImg: `newHome/teacher/nameimg/王红梅.png`,
-    imgUrl: `newHome/teacher/王红梅.jpg`,
-    desc: `盲人医疗按摩师，王红梅师徒传承会第一代传承人、中华医学国际发展联合会推拿按摩学科主任委员、安徽省扶残助残先进个人。1996年跟随陶宜珍老师系统地学习了推拿按摩的基本理论和实践技能，在长期的中医临床实践中摸索出了王红梅推拿按摩的独特手法：“触摸诊法”、“肘滚顺筋法”和“踩桥理疗法”，将中医推拿技术发扬光大。“王红梅”作为芜湖市非物质文化遗产单位，慕名而来求医或学习者众多，几十年来，王红梅老师亲自通过“师带徒”的方式培养徒弟或学员近三千人。`
-  },
-  {
-    name: `王丽茹`,
-    nameImg: `newHome/teacher/nameimg/王丽茹.png`,
-    imgUrl: `newHome/teacher/王丽茹.jpg`,
-    desc: `中共党员，王红梅师徒传承会第二代传承人，人力资源和社会保障部中国就业培训指导中心(CETTIC)职业技能培训中心认证培训讲师。从业十余年，持有高级灸疗师证书、经络调理师证书、灸疗师师资证书等相关职业技能资质等。作为中医养生调理专家，深耕中国传统中医行业，创办了“茹德堂”艾灸养生品牌，是世界中医药学会联合会艾灸推广委员会理事，2015年作为中方特派讲演代表在世界中医药学会联合会主办的亚洲艾灸高峰论坛（日本大阪）作中医艾灸养生课题讲演汇报。2023年被聘任为芜湖市产业教授。`
-  },
-  {
-    name: `肖业宇`,
-    nameImg: `newHome/teacher/nameimg/肖业宇.png`,
-    imgUrl: `newHome/teacher/肖业宇.jpg`,
-    desc: `农工党员，王红梅师徒传承会第二代传承人，王红梅祖传按摩技能非遗传承人，世界中医药学会联合会按摩推广委员会理事。毕业于安徽省中医药高专针推科，从小跟随母亲学习王红梅祖传按摩手法，持有高级按摩师资格证、康复保健调理师高级证书等相关职业技能资质等。数十年来将王红梅祖传按摩从一家门店运营发展至集培训学校，中草药种植基地和几十家门店为一体的集团化公司，在技术和经营管理理念上都有自己独到的见解。2023年被聘任为芜湖市产业教授。`
-  },
-  {
-    name: `袁磊`,
-    nameImg: `newHome/teacher/nameimg/袁磊.png`,
-    imgUrl: `newHome/teacher/袁磊.jpg`,
-    desc: `执业中医师，现就职于北京同仁堂，毕业于北京中医药大学，数代家传，后拜师张启明教授，并跟诊皮肤科姚玉珍主任，针灸科刘赫主任学习，后结合自身多年临床经验和感悟，自创周天三心针法，与经方搭配，针药合用。
-临床擅长：各类经络瘀堵疼痛性疾病、各类胃病、失眠、焦虑抑郁、各类鼻炎、各类皮肤性问题、月经病、结节及肿瘤、小儿（多动症、抽动症、消化不良、成长缓慢、腺样体肥大、鼻炎）。`
   }
 ])
 
@@ -597,6 +597,7 @@ const toCustomer = () => {
 </script>
 <style lang="scss" scoped>
 @import '@/assets/style/variable';
+@import '@/assets/style/font-face';
 
 :deep(.custom-swiper-box) {
   .swiper-pagination-bullet {
@@ -939,6 +940,7 @@ const toCustomer = () => {
     background-size: 100% 100%;
     @include media($breakpoint-md) {
       background: none;
+      margin-top: 60px;
     }
   }
   .answer-questions {
@@ -1064,16 +1066,15 @@ const toCustomer = () => {
         .right-description {
           flex: 1;
           margin-left: 60px;
+          height: calc(100% - 100px);
           .name-img {
-            width: 110px;
-            height: 50px;
-            img {
-              width: 100%;
-              height: 100%;
-            }
+            color: #a53f27;
+            font-family: 'mashan', sans-serif;
+            font-size: 60px;
+            margin-top: 30px;
+            margin-bottom: 30px;
           }
           .desc-text {
-            margin-top: 70px;
             font-size: 18px;
             color: #524d49;
             line-height: 1.5;
@@ -1084,23 +1085,27 @@ const toCustomer = () => {
     }
     .teachershuge-swiperBox-mobile {
       display: none;
-      margin: 30px 40px 0;
+      margin: 30px 30px 0;
       @include media($breakpoint-md) {
         display: block;
       }
       .swiper-item {
         background: url('@/assets/newHome/text-box-mobile.png') no-repeat;
         background-size: 100% 100%;
-        //height: 500px;
-        padding: 30px;
+        padding: 20px 30px;
         .head-box {
           display: flex;
           align-items: flex-end;
+          .name {
+            color: #a53f27;
+            font-family: 'mashan', sans-serif;
+            font-size: 36px;
+          }
           .teacher-picture {
             width: 136px;
             height: 172px;
             border-radius: 10px;
-            margin-right: 20px;
+            margin-right: 10px;
           }
           .teacher-name {
             width: 90px;
@@ -1110,6 +1115,7 @@ const toCustomer = () => {
         .desc-text {
           margin-top: 20px;
           line-height: 1.5;
+          text-align: justify;
         }
       }
     }
@@ -1192,7 +1198,6 @@ const toCustomer = () => {
   .footer-info-wrap {
     max-width: 1106px;
     margin: 140px auto 0;
-    padding-bottom: 200px;
     padding-bottom: 200px;
     @include media($breakpoint-md) {
       margin: 60px auto 0;

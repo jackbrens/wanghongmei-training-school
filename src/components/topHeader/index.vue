@@ -22,7 +22,7 @@ import { requirePath } from '@/utils/index.js'
 @import '@/assets/style/variable';
 .top-header-component {
   width: 100%;
-  height: 160px;
+  height: 140px;
   background-color: #f6f0e5;
   @include media($breakpoint-md) {
     height: 80px;

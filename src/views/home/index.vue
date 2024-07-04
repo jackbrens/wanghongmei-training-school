@@ -646,7 +646,7 @@ const toCustomer = () => {
 
   .banner-content {
     width: 100%;
-    height: 979px;
+    height: 900px;
     background: url(./../../assets/newHome/banner.png) no-repeat;
     background-size: 100% 100%;
     position: relative;

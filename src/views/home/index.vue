@@ -466,8 +466,7 @@ const schoolObjectiveImgArr = ref([
   `corporateCulture/028.jpg`,
   `corporateCulture/029.jpg`,
   `corporateCulture/030.jpg`,
-  `corporateCulture/031.jpg`,
-  `corporateCulture/006.jpg`
+  `corporateCulture/031.jpg`
 ])
 
 //学校荣誉 轮播图

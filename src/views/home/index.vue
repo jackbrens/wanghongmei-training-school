@@ -456,6 +456,17 @@ const questionsList = ref([
 
 //办学宗旨 轮播图
 const schoolObjectiveImgArr = ref([
+  `corporateCulture/021.jpg`,
+  `corporateCulture/022.jpg`,
+  `corporateCulture/023.jpg`,
+  `corporateCulture/024.jpg`,
+  `corporateCulture/025.jpg`,
+  `corporateCulture/026.jpg`,
+  `corporateCulture/027.jpg`,
+  `corporateCulture/028.jpg`,
+  `corporateCulture/029.jpg`,
+  `corporateCulture/030.jpg`,
+  `corporateCulture/031.jpg`,
   `corporateCulture/001.jpg`,
   `corporateCulture/002.jpg`,
   `corporateCulture/003.jpg`,
